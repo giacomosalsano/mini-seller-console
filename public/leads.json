@@ -1,0 +1,182 @@
+[
+  {
+    "id": "1",
+    "name": "Luca Bianchi",
+    "company": "ItalMotori",
+    "email": "luca@italmotori.it",
+    "source": "Website",
+    "score": 95,
+    "status": "New"
+  },
+  {
+    "id": "2",
+    "name": "Giulia Rossi",
+    "company": "VenditaOnline",
+    "email": "giulia@venditaonline.it",
+    "source": "Referral",
+    "score": 85,
+    "status": "Contacted"
+  },
+  {
+    "id": "3",
+    "name": "Marco Conti",
+    "company": "SoftItalia",
+    "email": "marco@softitalia.it",
+    "source": "LinkedIn",
+    "score": 92,
+    "status": "Qualified"
+  },
+  {
+    "id": "4",
+    "name": "Alessandro Greco",
+    "company": "MetaItalia",
+    "email": "alessandro@metaitalia.it",
+    "source": "Event",
+    "score": 78,
+    "status": "New"
+  },
+  {
+    "id": "5",
+    "name": "Francesca Romano",
+    "company": "Ricerca360",
+    "email": "francesca@ricerca360.it",
+    "source": "Website",
+    "score": 88,
+    "status": "Contacted"
+  },
+  {
+    "id": "6",
+    "name": "Davide Moretti",
+    "company": "MelaTech",
+    "email": "davide@melatech.it",
+    "source": "Referral",
+    "score": 91,
+    "status": "Unqualified"
+  },
+  {
+    "id": "7",
+    "name": "Elena Fontana",
+    "company": "SoftItalia",
+    "email": "elena@softitalia.it",
+    "source": "LinkedIn",
+    "score": 89,
+    "status": "Qualified"
+  },
+  {
+    "id": "8",
+    "name": "Ana Souza",
+    "company": "InovaTech",
+    "email": "ana@inovatech.com",
+    "source": "Website",
+    "score": 83,
+    "status": "New"
+  },
+  {
+    "id": "9",
+    "name": "Carlos Mendes",
+    "company": "SoftPlus",
+    "email": "carlos@softplus.com",
+    "source": "Referral",
+    "score": 90,
+    "status": "Contacted"
+  },
+  {
+    "id": "10",
+    "name": "Julia Ferreira",
+    "company": "DataVision",
+    "email": "julia@datavision.com",
+    "source": "Event",
+    "score": 87,
+    "status": "Qualified"
+  },
+  {
+    "id": "11",
+    "name": "Ricardo Lima",
+    "company": "NextGen AI",
+    "email": "ricardo@nextgenai.com",
+    "source": "LinkedIn",
+    "score": 76,
+    "status": "Unqualified"
+  },
+  {
+    "id": "12",
+    "name": "Fernanda Rocha",
+    "company": "GreenBytes",
+    "email": "fernanda@greenbytes.com",
+    "source": "Website",
+    "score": 93,
+    "status": "New"
+  },
+  {
+    "id": "13",
+    "name": "Paulo Oliveira",
+    "company": "CyberWorks",
+    "email": "paulo@cyberworks.com",
+    "source": "Referral",
+    "score": 81,
+    "status": "Contacted"
+  },
+  {
+    "id": "14",
+    "name": "Mariana Teixeira",
+    "company": "QuantumWare",
+    "email": "mariana@quantumware.com",
+    "source": "Event",
+    "score": 88,
+    "status": "Qualified"
+  },
+  {
+    "id": "15",
+    "name": "Lucas Silva",
+    "company": "CloudLink",
+    "email": "lucas@cloudlink.com",
+    "source": "LinkedIn",
+    "score": 79,
+    "status": "New"
+  },
+  {
+    "id": "16",
+    "name": "Bianca Martins",
+    "company": "NeuralNode",
+    "email": "bianca@neuralnode.com",
+    "source": "Website",
+    "score": 85,
+    "status": "Unqualified"
+  },
+  {
+    "id": "17",
+    "name": "André Costa",
+    "company": "TechSphere",
+    "email": "andre@techsphere.com",
+    "source": "Referral",
+    "score": 94,
+    "status": "Qualified"
+  },
+  {
+    "id": "18",
+    "name": "Carla Santos",
+    "company": "CloudMind",
+    "email": "carla@cloudmind.com",
+    "source": "LinkedIn",
+    "score": 82,
+    "status": "New"
+  },
+  {
+    "id": "19",
+    "name": "Daniel Oliveira",
+    "company": "TechSphere",
+    "email": "daniel@techsphere.com",
+    "source": "Referral",
+    "score": 80,
+    "status": "Contacted"
+  },
+  {
+    "id": "20",
+    "name": "Isabela Martins",
+    "company": "NeuralNode",
+    "email": "isabela@neuralnode.com",
+    "source": "Website",
+    "score": 86,
+    "status": "Unqualified"
+  }
+]
