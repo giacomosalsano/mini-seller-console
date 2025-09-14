@@ -3,6 +3,8 @@ import type { ColumnDef } from "@tanstack/react-table";
 import type { Opportunity } from "../../../modules/opportunities/types";
 
 import { OpportunityDetails } from "./actions/opportunity-detail";
+import { formatCurrency, Locale } from "@/utils/currency";
+import { StageBadge } from "@/components/shared/stage-badge";
 
 export const createColumns = (): ColumnDef<Opportunity>[] => [
   {
@@ -43,14 +45,28 @@ export const createColumns = (): ColumnDef<Opportunity>[] => [
     header: "Stage",
     enableSorting: true,
     enableColumnFilter: false,
+    cell: ({ row }) => {
+      return (
+        <div>
+          <StageBadge stage={row.original.stage} />
+        </div>
+      );
+    },
   },
   {
-    accessorKey: "amount",
+    accessorKey: "amountInCents",
     header: "Amount",
     enableSorting: true,
-    enableColumnFilter: true,
-    filterFn: (row, id, value) => {
-      return value.includes(row.getValue(id));
+    enableColumnFilter: false,
+    cell: ({ row }) => {
+      return (
+        <span>
+          {formatCurrency({
+            valueInCents: row.original.amountInCents,
+            locale: Locale.US,
+          })}
+        </span>
+      );
     },
   },
   {

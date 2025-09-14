@@ -9,8 +9,9 @@ import type {
 } from "@tanstack/react-table";
 import { BrushCleaningIcon, Search } from "lucide-react";
 import { useMemo } from "react";
+import { LeadStatus } from "@/modules/leads/types";
 
-interface FiltersProps {
+interface LeadsFiltersProps {
   globalFilter: string;
   setGlobalFilter: (value: string) => void;
   table: Table<any>;
@@ -19,21 +20,21 @@ interface FiltersProps {
   loading?: boolean;
 }
 
-export function Filters({
+export function LeadsFilters({
   globalFilter,
   setGlobalFilter,
   table,
   setColumnFilters,
   setSorting,
   loading = false,
-}: FiltersProps) {
+}: LeadsFiltersProps) {
   const statusSelectItems = useMemo(() => {
     return [
       { value: "all", label: "All" },
-      { value: "New", label: "New" },
-      { value: "Contacted", label: "Contacted" },
-      { value: "Qualified", label: "Qualified" },
-      { value: "Unqualified", label: "Unqualified" },
+      { value: LeadStatus.New, label: LeadStatus.New },
+      { value: LeadStatus.Contacted, label: LeadStatus.Contacted },
+      { value: LeadStatus.Qualified, label: LeadStatus.Qualified },
+      { value: LeadStatus.Unqualified, label: LeadStatus.Unqualified },
     ];
   }, []);
 

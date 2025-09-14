@@ -5,15 +5,17 @@ import {
   Building2,
   Globe,
   EyeIcon,
-  FileDigit,
   IdCard,
   User,
-  UserRoundCheck,
+  Locate,
+  DollarSign,
+  ALargeSmall,
 } from "lucide-react";
 
 import { useMemo } from "react";
 import { SheetComponent } from "@/components/shared/sheet-component";
-import { ScoreBadge } from "@/components/shared/score-badge";
+import { formatCurrency, Locale } from "@/utils/currency";
+import { StageBadge } from "@/components/shared/stage-badge";
 
 interface OpportunityDetailsProps {
   opportunity: Opportunity;
@@ -74,18 +76,31 @@ export const OpportunityDetails = ({
 
         <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
-            <FileDigit className="h-4 w-4" />
-            <p className="hidden font-bold md:block">Score:</p>
+            <Locate className="h-4 w-4" />
+            <p className="hidden font-bold md:block">Stage:</p>
           </div>
-          <ScoreBadge score={opportunity.amountInCents} />
+          <StageBadge stage={opportunity.stage} />
         </div>
 
         <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
-            <UserRoundCheck className="h-4 w-4" />
-            <p className="font-bold">Status:</p>
+            <DollarSign className="h-4 w-4" />
+            <p className="font-bold">Amount:</p>
           </div>
-          <p>{opportunity.stage}</p>
+          <p>
+            {formatCurrency({
+              valueInCents: opportunity.amountInCents,
+              locale: Locale.US,
+            })}
+          </p>
+        </div>
+
+        <div className="flex flex-row gap-1">
+          <div className="flex flex-row items-center gap-1">
+            <ALargeSmall className="h-4 w-4" />
+            <p className="hidden font-bold md:block">Account Name:</p>
+          </div>
+          {opportunity.accountName}
         </div>
       </div>
     );

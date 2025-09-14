@@ -21,7 +21,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Filters } from "../../../components/shared/filters";
+import { LeadsFilters } from "./filters";
 
 interface LeadsTableProps<TData, TValue> {
   leads: Lead[];
@@ -85,7 +85,7 @@ export const LeadsTable = <TData, TValue>({
   return (
     <div className="mx-auto w-full items-center justify-center space-y-4">
       <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-2 lg:justify-between">
-        <Filters
+        <LeadsFilters
           globalFilter={globalFilter}
           setGlobalFilter={setGlobalFilter}
           table={table}

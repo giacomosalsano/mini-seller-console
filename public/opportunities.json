@@ -7,7 +7,7 @@
     "source": "Website",
     "stage": "Proposal Sent",
     "amountInCents": 1120000,
-    "accountName": "Conti Group"
+    "accountName": "JPMorgan Chase"
   },
   {
     "id": "54",
@@ -15,9 +15,9 @@
     "company": "CloudForge",
     "email": "julien.bernard@cloudforge.fr",
     "source": "Website",
-    "stage": "Proposal Sent",
+    "stage": "Negotiation",
     "amountInCents": 1000000,
-    "accountName": "CloudForge"
+    "accountName": "Bank of America"
   },
   {
     "id": "56",
@@ -25,9 +25,9 @@
     "company": "SolutionPro SAS",
     "email": "claire.dubois@solutionpro.fr",
     "source": "Referral",
-    "stage": "Qualified",
+    "stage": "Declined",
     "amountInCents": 975000,
-    "accountName": "SolutionPro"
+    "accountName": "Crédit Agricole"
   },
   {
     "id": "61",
@@ -35,9 +35,9 @@
     "company": "Renault Systems",
     "email": "sophie.renault@renaultsys.fr",
     "source": "LinkedIn",
-    "stage": "Qualified",
+    "stage": "Accepted",
     "amountInCents": 1470000,
-    "accountName": "Renault Systems"
+    "accountName": "Citigroup"
   },
   {
     "id": "63",
@@ -45,9 +45,9 @@
     "company": "Moretti Solutions",
     "email": "giovanni.moretti@morettisol.it",
     "source": "Event",
-    "stage": "New",
+    "stage": "Accepted",
     "amountInCents": 680000,
-    "accountName": "Moretti Solutions"
+    "accountName": "Goldman Sachs"
   },
   {
     "id": "67",
@@ -57,7 +57,7 @@
     "source": "Inbound",
     "stage": "New",
     "amountInCents": 2200000,
-    "accountName": "StartNow"
+    "accountName": "HSBC"
   },
   {
     "id": "73",
@@ -67,7 +67,7 @@
     "source": "LinkedIn",
     "stage": "Negotiation",
     "amountInCents": 1200000,
-    "accountName": "TechItalia"
+    "accountName": "Morgan Stanley"
   },
   {
     "id": "76",
@@ -75,9 +75,9 @@
     "company": "Mancini Digital",
     "email": "laura.mancini@mancinidigital.it",
     "source": "Partner",
-    "stage": "Contacted",
+    "stage": "New",
     "amountInCents": 890000,
-    "accountName": "Mancini Digital"
+    "accountName": "Deutsche Bank"
   },
   {
     "id": "78",
@@ -85,9 +85,9 @@
     "company": "Lima Logística",
     "email": "rafael.lima@limalog.com.br",
     "source": "Outbound",
-    "stage": "Contacted",
+    "stage": "Proposal Sent",
     "amountInCents": 1080000,
-    "accountName": "Lima Logística"
+    "accountName": "Barclays"
   },
   {
     "id": "84",
@@ -95,9 +95,9 @@
     "company": "NexaCloud",
     "email": "antoine.lefevre@nexacloud.fr",
     "source": "Partner",
-    "stage": "Qualified",
+    "stage": "Declined",
     "amountInCents": 1560000,
-    "accountName": "NexaCloud"
+    "accountName": "Credit Suisse"
   },
   {
     "id": "87",
@@ -105,9 +105,9 @@
     "company": "Ribeiro Tech",
     "email": "fernanda.ribeiro@ribeirotech.com.br",
     "source": "LinkedIn",
-    "stage": "Qualified",
+    "stage": "Proposal Sent",
     "amountInCents": 1420000,
-    "accountName": "Ribeiro Tech"
+    "accountName": "UBS"
   },
   {
     "id": "89",
@@ -115,9 +115,9 @@
     "company": "InovaTech Brasil",
     "email": "lucas.andrade@inovatech.com.br",
     "source": "Website",
-    "stage": "Proposal Sent",
+    "stage": "New",
     "amountInCents": 1850000,
-    "accountName": "InovaTech"
+    "accountName": "BNP Paribas"
   },
   {
     "id": "92",
@@ -125,9 +125,9 @@
     "company": "Digitale Roma",
     "email": "matteo.rossi@digitaleroma.it",
     "source": "Event",
-    "stage": "Contacted",
+    "stage": "Proposal Sent",
     "amountInCents": 730000,
-    "accountName": "Digitale Roma"
+    "accountName": "Santander"
   },
   {
     "id": "95",
@@ -137,7 +137,7 @@
     "source": "Referral",
     "stage": "Negotiation",
     "amountInCents": 1340000,
-    "accountName": "DigitalFlow"
+    "accountName": "Royal Bank of Canada"
   },
   {
     "id": "99",
@@ -147,6 +147,6 @@
     "source": "Inbound",
     "stage": "Negotiation",
     "amountInCents": 2530000,
-    "accountName": "NextLevel"
+    "accountName": "Banco do Brasil"
   }
 ]

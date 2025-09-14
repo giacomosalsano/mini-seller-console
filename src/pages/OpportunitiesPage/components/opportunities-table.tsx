@@ -21,7 +21,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Filters } from "../../../components/shared/filters";
+import { OpportunitiesFilters } from "./filters";
 
 interface OpportunitiesTableProps<TData, TValue> {
   opportunities: Opportunity[];
@@ -70,7 +70,7 @@ export const OpportunitiesTable = <TData, TValue>({
   const renderSkeletonRows = () => {
     return Array.from({ length: 15 }).map((_, index) => (
       <TableRow key={`skeleton-${index}`}>
-        {Array.from({ length: 8 }).map((_, cellIndex) => (
+        {Array.from({ length: 9 }).map((_, cellIndex) => (
           <TableCell
             key={`skeleton-cell-${index}-${cellIndex}`}
             className="text-center"
@@ -85,7 +85,7 @@ export const OpportunitiesTable = <TData, TValue>({
   return (
     <div className="mx-auto w-full items-center justify-center space-y-4">
       <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-2 lg:justify-between">
-        <Filters
+        <OpportunitiesFilters
           globalFilter={globalFilter}
           setGlobalFilter={setGlobalFilter}
           table={table}
