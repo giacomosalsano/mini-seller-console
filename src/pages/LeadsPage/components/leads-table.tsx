@@ -68,9 +68,9 @@ export const LeadsTable = <TData, TValue>({
   });
 
   const renderSkeletonRows = () => {
-    return Array.from({ length: 5 }).map((_, index) => (
+    return Array.from({ length: 15 }).map((_, index) => (
       <TableRow key={`skeleton-${index}`}>
-        {Array.from({ length: 5 }).map((_, cellIndex) => (
+        {Array.from({ length: 8 }).map((_, cellIndex) => (
           <TableCell
             key={`skeleton-cell-${index}-${cellIndex}`}
             className="text-center"
@@ -81,10 +81,6 @@ export const LeadsTable = <TData, TValue>({
       </TableRow>
     ));
   };
-
-  if (loading) {
-    return renderSkeletonRows();
-  }
 
   return (
     <div className="mx-auto w-full items-center justify-center space-y-4">
