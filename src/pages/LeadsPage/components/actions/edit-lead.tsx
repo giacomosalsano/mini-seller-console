@@ -1,7 +1,5 @@
-// src/pages/LeadsPage/components/actions/lead-detail.tsx
-
 import { Button } from "@/components/ui/button";
-import { LeadStatus, type Lead } from "@/modules/leads/types"; // Importe LeadStatus
+import { LeadStatus, type Lead } from "@/modules/leads/types";
 import {
   AtSign,
   Building2,
@@ -13,7 +11,8 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { Input } from "@/components/ui/input";
 import { SelectComponent } from "@/components/shared/select-component";
@@ -34,6 +33,9 @@ interface EditLeadProps {
 }
 
 export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
     name: lead.name,
     company: lead.company,
@@ -43,18 +45,9 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
     status: lead.status,
   });
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setFormData({
-      name: lead.name,
-      company: lead.company,
-      source: lead.source,
-      score: lead.score,
-      email: lead.email,
-      status: lead.status,
-    });
-  }, [lead]);
+  // Verifica se a rota atual é de edição deste lead e define o estado do sheet
+  const isEditRoute = location.pathname === `/leads/edit/${lead.id}`;
+  const isOpen = isEditRoute;
 
   const handleCancel = () => {
     setFormData({
@@ -65,14 +58,20 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
       email: lead.email,
       status: lead.status,
     });
-    setIsOpen(false);
+    navigate("/leads");
   };
 
   const handleSave = () => {
     console.log("Salvando dados:", formData);
     onUpdateLead({ ...formData, id: lead.id });
     toast.success("Lead updated successfully!");
-    setIsOpen(false);
+    navigate("/leads");
+  };
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      navigate("/leads");
+    }
   };
 
   const leadDetailsTrigger = useMemo(() => {
@@ -81,12 +80,12 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
         variant="outline"
         size="sm"
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => navigate(`/leads/edit/${lead.id}`)}
       >
         <PencilIcon className="h-4 w-4" />
       </Button>
     );
-  }, []);
+  }, [lead.id, navigate]);
 
   const statusSelectItems = useMemo(() => {
     return Object.values(LeadStatus).map((status) => ({
@@ -213,7 +212,7 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
   }, [formData, lead, statusSelectItems]);
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
       <SheetTrigger asChild>{leadDetailsTrigger}</SheetTrigger>
       <SheetContent>
         <SheetHeader>

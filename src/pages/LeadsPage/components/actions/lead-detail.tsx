@@ -12,7 +12,15 @@ import {
 } from "lucide-react";
 
 import { useMemo } from "react";
-import { SheetComponent } from "@/components/shared/sheet-component";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { ScoreBadge } from "@/components/shared/score-badge";
 
@@ -21,13 +29,31 @@ interface LeadDetailsProps {
 }
 
 export const LeadDetails = ({ lead }: LeadDetailsProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Verifica se a rota atual é de detalhes deste lead e define o estado do sheet
+  const isDetailsRoute = location.pathname === `/leads/details/${lead.id}`;
+  const isOpen = isDetailsRoute;
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      navigate("/leads");
+    }
+  };
+
   const leadDetailsTrigger = useMemo(() => {
     return (
-      <Button variant="outline" size="sm" type="button">
+      <Button
+        variant="outline"
+        size="sm"
+        type="button"
+        onClick={() => navigate(`/leads/details/${lead.id}`)}
+      >
         <EyeIcon className="h-4 w-4" />
       </Button>
     );
-  }, []);
+  }, [lead.id, navigate]);
 
   const leadDetailsContent = useMemo(() => {
     return (
@@ -88,14 +114,20 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
         </div>
       </div>
     );
-  }, []);
+  }, [lead]);
 
   return (
-    <SheetComponent
-      trigger={leadDetailsTrigger}
-      title="Lead Details"
-      description="Here you can see the lead details."
-      children={leadDetailsContent}
-    />
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
+      <SheetTrigger asChild>{leadDetailsTrigger}</SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Lead Details</SheetTitle>
+          <SheetDescription>
+            Here you can see the lead details.
+          </SheetDescription>
+        </SheetHeader>
+        {leadDetailsContent}
+      </SheetContent>
+    </Sheet>
   );
 };

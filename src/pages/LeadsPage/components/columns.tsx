@@ -10,7 +10,9 @@ interface CreateColumnsProps {
   onUpdateLead: (lead: Lead) => void;
 }
 
-export const createColumns = ({ onUpdateLead }: CreateColumnsProps): ColumnDef<Lead>[] => [
+export const createColumns = ({
+  onUpdateLead,
+}: CreateColumnsProps): ColumnDef<Lead>[] => [
   {
     accessorKey: "id",
     header: "ID",
