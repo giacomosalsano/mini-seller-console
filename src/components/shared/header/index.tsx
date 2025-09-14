@@ -2,13 +2,11 @@ import { Toggle } from "@/components/ui/toggle";
 import { Moon, Sun, TrendingUp, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-interface HeaderProps {
-  currentView: "leads" | "opportunities";
-  onViewChange: (view: "leads" | "opportunities") => void;
-}
-
-export function Header({ currentView, onViewChange }: HeaderProps) {
+export function Header() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -48,20 +46,22 @@ export function Header({ currentView, onViewChange }: HeaderProps) {
           <h1 className="hidden font-bold lg:block lg:text-xl">Mini-Seller</h1>
         </div>
 
-        <nav className="flex items-center gap-4 lg:gap-4 lg:mr-20">
+        <nav className="flex items-center gap-4 lg:mr-20 lg:gap-4">
           <Button
-            variant={currentView === "leads" ? "default" : "ghost"}
+            variant={location.pathname === "/leads" ? "default" : "ghost"}
             size="sm"
-            onClick={() => onViewChange("leads")}
+            onClick={() => navigate("/leads")}
             className="flex items-center gap-2"
           >
             <UserPlus className="h-4 w-4 lg:h-4 lg:w-4" />
             Leads
           </Button>
           <Button
-            variant={currentView === "opportunities" ? "default" : "ghost"}
+            variant={
+              location.pathname === "/opportunities" ? "default" : "ghost"
+            }
             size="sm"
-            onClick={() => onViewChange("opportunities")}
+            onClick={() => navigate("/opportunities")}
             className="flex items-center gap-2"
           >
             <TrendingUp className="h-4 w-4 lg:h-4 lg:w-4" />
