@@ -42,7 +42,7 @@ export const OpportunitiesPageWrapper = () => {
 
   const opportunityDetailsContent = useMemo(() => {
     return (
-      <div className="flex flex-col gap-6 py-6 items-center">
+      <div className="flex flex-col items-center gap-6 py-6">
         <UserX className="text-destructive h-10 w-10" />
         <div className="text-center">
           <p className="text-muted-foreground">
@@ -67,12 +67,16 @@ export const OpportunitiesPageWrapper = () => {
 
   return (
     <>
-      <OpportunitiesPage />
+      <OpportunitiesPage
+        opportunities={opportunities}
+        loading={loading}
+        handleGetOpportunities={handleGetOpportunities}
+      />
 
       <SheetComponent
         open={showNotFoundSheet}
         onOpenChange={setShowNotFoundSheet}
-        trigger={<Button>Not Found</Button>}
+        trigger={""}
         title="Opportunity Not Found"
         description="The opportunity you are looking for does not exist."
         children={opportunityDetailsContent}

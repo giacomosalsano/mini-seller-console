@@ -7,7 +7,7 @@ import { ArrowLeft, UserX } from "lucide-react";
 import { SheetComponent } from "@/components/shared/sheet-component";
 
 export const LeadsPageWrapper = () => {
-  const { leads, loading, handleGetLeads } = useLeads();
+  const { leads, loading, handleGetLeads, handleUpdateLead } = useLeads();
   const location = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -64,12 +64,17 @@ export const LeadsPageWrapper = () => {
 
   return (
     <>
-      <LeadsPage />
+      <LeadsPage
+        leads={leads}
+        loading={loading}
+        handleGetLeads={handleGetLeads}
+        handleUpdateLead={handleUpdateLead}
+      />
 
       <SheetComponent
         open={showNotFoundSheet}
         onOpenChange={setShowNotFoundSheet}
-        trigger={<Button>Not Found</Button>}
+        trigger={""}
         title="Lead Not Found"
         description="The lead you are looking for does not exist."
         children={leadDetailsContent}

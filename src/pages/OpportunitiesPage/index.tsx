@@ -1,12 +1,21 @@
 import { useEffect } from "react";
-import { useOpportunities } from "../../modules/opportunities/hooks/useOpportunities";
 import { OpportunitiesTable } from "./components/opportunities-table";
 import { createColumns } from "./components/columns";
 import { useLocation, useParams } from "react-router-dom";
 import { OpportunityDetails } from "./components/actions/opportunity-detail";
+import type { Opportunity } from "@/modules/opportunities/types";
 
-export const OpportunitiesPage = () => {
-  const { opportunities, loading, handleGetOpportunities } = useOpportunities();
+interface OpportunitiesPageProps {
+  opportunities: Opportunity[];
+  loading: boolean;
+  handleGetOpportunities: (props: { props: {} }) => void;
+}
+
+export const OpportunitiesPage = ({
+  opportunities,
+  loading,
+  handleGetOpportunities,
+}: OpportunitiesPageProps) => {
   const location = useLocation();
   const { id } = useParams();
 

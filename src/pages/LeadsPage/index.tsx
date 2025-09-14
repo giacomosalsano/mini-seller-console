@@ -1,13 +1,24 @@
 import { useEffect } from "react";
-import { useLeads } from "../../modules/leads/hooks/useLeads";
 import { LeadsTable } from "./components/leads-table";
 import { createColumns } from "./components/columns";
 import { useLocation, useParams } from "react-router-dom";
 import { EditLead } from "./components/actions/edit-lead";
 import { LeadDetails } from "./components/actions/lead-detail";
+import type { Lead } from "@/modules/leads/types";
 
-export const LeadsPage = () => {
-  const { leads, loading, handleGetLeads, handleUpdateLead } = useLeads();
+interface LeadsPageProps {
+  leads: Lead[];
+  loading: boolean;
+  handleGetLeads: (props: { props: {} }) => void;
+  handleUpdateLead: (props: { props: Lead }) => void;
+}
+
+export const LeadsPage = ({
+  leads,
+  loading,
+  handleGetLeads,
+  handleUpdateLead,
+}: LeadsPageProps) => {
   const location = useLocation();
   const { id } = useParams();
 
