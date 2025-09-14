@@ -18,14 +18,24 @@ function getValueFromLocalStorage<T>(key: string, initialValue: T): T {
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,
-): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [value, setValue] = useState<T>(() => {
-    return getValueFromLocalStorage(key, initialValue);
-  });
+): [T, React.Dispatch<React.SetStateAction<T>>, boolean] {
+  const [value, setValue] = useState<T>(initialValue);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    const timeout = setTimeout(() => {
+      setValue(getValueFromLocalStorage(key, initialValue));
+      setLoading(false);
+    }, 100);
 
-  return [value, setValue];
+    return () => clearTimeout(timeout);
+  }, [key, initialValue]);
+
+  useEffect(() => {
+    if (!loading) {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    }
+  }, [key, value, loading]);
+
+  return [value, setValue, loading];
 }

@@ -34,18 +34,17 @@ export const OpportunitiesTable = <TData, TValue>({
   loading,
   columns,
 }: OpportunitiesTableProps<TData, TValue>) => {
-  const [sorting, setSorting] = useLocalStorage<SortingState>(
+  const [sorting, setSorting, isSortingLoading] = useLocalStorage<SortingState>(
     "opportunities-sorting",
     [],
   );
-  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
-    "opportunities-filters",
-    [],
-  );
-  const [globalFilter, setGlobalFilter] = useLocalStorage<string>(
-    "opportunities-global-filter",
-    "",
-  );
+  const [columnFilters, setColumnFilters, areFiltersLoading] =
+    useLocalStorage<ColumnFiltersState>("opportunities-filters", []);
+  const [globalFilter, setGlobalFilter, isGlobalFilterLoading] =
+    useLocalStorage<string>("opportunities-global-filter", "");
+
+  const isTableConfigLoading =
+    loading || isSortingLoading || areFiltersLoading || isGlobalFilterLoading;
 
   const table = useReactTable({
     data: opportunities as TData[],
@@ -100,7 +99,7 @@ export const OpportunitiesTable = <TData, TValue>({
           table={table}
           setColumnFilters={setColumnFilters}
           setSorting={setSorting}
-          loading={loading}
+          loading={isTableConfigLoading}
         />
       </div>
 
@@ -137,7 +136,7 @@ export const OpportunitiesTable = <TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {loading ? (
+            {isTableConfigLoading ? (
               renderSkeletonRows()
             ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row, index) => (
@@ -175,7 +174,7 @@ export const OpportunitiesTable = <TData, TValue>({
 
       <div className="text-muted-foreground flex items-center justify-end text-sm">
         <div>
-          {loading ? (
+          {isTableConfigLoading ? (
             <Skeleton className="h-4 w-32" />
           ) : (
             <>

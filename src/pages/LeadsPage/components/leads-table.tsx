@@ -34,18 +34,17 @@ export const LeadsTable = <TData, TValue>({
   loading,
   columns,
 }: LeadsTableProps<TData, TValue>) => {
-  const [sorting, setSorting] = useLocalStorage<SortingState>(
+  const [sorting, setSorting, isSortingLoading] = useLocalStorage<SortingState>(
     "leads-sorting",
     [],
   );
-  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
-    "leads-filters",
-    [],
-  );
-  const [globalFilter, setGlobalFilter] = useLocalStorage<string>(
-    "leads-global-filter",
-    "",
-  );
+  const [columnFilters, setColumnFilters, areFiltersLoading] =
+    useLocalStorage<ColumnFiltersState>("leads-filters", []);
+  const [globalFilter, setGlobalFilter, isGlobalFilterLoading] =
+    useLocalStorage<string>("leads-global-filter", "");
+
+  const isTableConfigLoading =
+    loading || isSortingLoading || areFiltersLoading || isGlobalFilterLoading;
 
   const table = useReactTable({
     data: leads as TData[],
@@ -100,7 +99,7 @@ export const LeadsTable = <TData, TValue>({
           table={table}
           setColumnFilters={setColumnFilters}
           setSorting={setSorting}
-          loading={loading}
+          loading={isTableConfigLoading}
         />
       </div>
 
@@ -137,7 +136,7 @@ export const LeadsTable = <TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {loading ? (
+            {isTableConfigLoading ? (
               renderSkeletonRows()
             ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row, index) => (
@@ -175,7 +174,7 @@ export const LeadsTable = <TData, TValue>({
 
       <div className="text-muted-foreground flex items-center justify-end text-sm">
         <div>
-          {loading ? (
+          {isTableConfigLoading ? (
             <Skeleton className="h-4 w-32" />
           ) : (
             <>
