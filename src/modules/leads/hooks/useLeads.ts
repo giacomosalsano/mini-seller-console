@@ -100,10 +100,37 @@ export const useLeads = () => {
     [properties.leads, handleSetProperties],
   );
 
+  const handleRemoveLead = useCallback(
+    async ({ props, onSuccess, onError }: Handler<{ id: string }>) => {
+      try {
+        const updatedLeads = properties.leads.filter(
+          (lead) => lead.id !== props.id,
+        );
+
+        handleSetProperties({ leads: updatedLeads });
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(updatedLeads));
+
+        toast.success("Lead converted successfully!");
+
+        if (onSuccess) {
+          onSuccess();
+        }
+      } catch (error) {
+        if (onError) {
+          onError(error as Error);
+          return;
+        }
+        toast.error("Error converting lead");
+      }
+    },
+    [properties.leads, handleSetProperties],
+  );
+
   return {
     leads: properties.leads,
     loading: properties.loading,
     handleGetLeads,
     handleUpdateLead,
+    handleRemoveLead,
   };
 };
