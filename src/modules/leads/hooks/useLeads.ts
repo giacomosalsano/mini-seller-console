@@ -14,6 +14,8 @@ interface Properties {
   leads: Lead[];
 }
 
+const LEADS_STORAGE_KEY = "mini-seller-leads";
+
 export const useLeads = () => {
   const [properties, setProperties] = useState<Properties>({
     loading: false,
@@ -32,9 +34,21 @@ export const useLeads = () => {
       handleSetProperties({ loading: true });
 
       try {
-        const data = await getLeads();
+        const localData = localStorage.getItem(LEADS_STORAGE_KEY);
+        if (localData) {
+          const leads = JSON.parse(localData);
+          handleSetProperties({ leads });
+          if (onSuccess) onSuccess(leads);
+          toast.success("Leads loaded from localStorage");
+          return;
+        }
 
+        const data = await getLeads();
         handleSetProperties({ leads: data });
+
+        toast.success("Leads loaded from API");
+
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(data));
 
         if (onSuccess) {
           onSuccess(data);
@@ -61,11 +75,12 @@ export const useLeads = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       try {
-        handleSetProperties({
-          leads: properties.leads.map((lead) =>
-            lead.id === props.id ? { ...lead, ...props } : lead,
-          ),
-        });
+        const updatedLeads = properties.leads.map((lead) =>
+          lead.id === props.id ? { ...lead, ...props } : lead,
+        );
+
+        handleSetProperties({ leads: updatedLeads });
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(updatedLeads));
 
         toast.success("Lead updated successfully!");
 
