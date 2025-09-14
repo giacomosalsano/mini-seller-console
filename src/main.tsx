@@ -9,6 +9,6 @@ document.documentElement.classList.add("dark");
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
-    <Toaster position="top-right" richColors />
+    <Toaster position="top-right" richColors closeButton={true} />
   </StrictMode>,
 );

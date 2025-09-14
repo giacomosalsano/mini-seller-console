@@ -6,7 +6,11 @@ import { LeadDetails } from "./actions/lead-detail";
 import { ScoreBadge } from "@/components/shared/score-badge";
 import { EditLead } from "./actions/edit-lead";
 
-export const createColumns = (): ColumnDef<Lead>[] => [
+interface CreateColumnsProps {
+  onUpdateLead: (lead: Lead) => void;
+}
+
+export const createColumns = ({ onUpdateLead }: CreateColumnsProps): ColumnDef<Lead>[] => [
   {
     accessorKey: "id",
     header: "ID",
@@ -78,11 +82,11 @@ export const createColumns = (): ColumnDef<Lead>[] => [
       return (
         <div className="flex justify-center gap-2">
           <LeadDetails lead={row.original} />
-          <EditLead lead={row.original} />
+          <EditLead lead={row.original} onUpdateLead={onUpdateLead} />
         </div>
       );
     },
   },
 ];
 
-export const columns = createColumns();
+export const columns = createColumns({ onUpdateLead: () => {} });

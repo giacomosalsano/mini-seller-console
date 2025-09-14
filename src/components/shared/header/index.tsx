@@ -48,6 +48,7 @@ export function Header() {
             onPressedChange={toggleTheme}
             aria-label="Toggle theme"
             variant="outline"
+            className="rounded-lg"
           >
             {isDark ? (
               <Sun className="h-8 w-8 lg:h-8 lg:w-8" />

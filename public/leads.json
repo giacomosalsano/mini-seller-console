@@ -1,11 +1,11 @@
 [
   {
     "id": "1",
-    "name": "Luca Bianchi",
-    "company": "ItalMotori",
-    "email": "luca@italmotori.it",
-    "source": "Website",
-    "score": 95,
+    "name": "Giacomo Salsano",
+    "company": "Mini-Seller",
+    "email": "giacomo@miniseller.it",
+    "source": "Linkedin",
+    "score": 100,
     "status": "New"
   },
   {
@@ -59,7 +59,7 @@
     "company": "SoftItalia",
     "email": "elena@softitalia.it",
     "source": "LinkedIn",
-    "score": 89,
+    "score": 96,
     "status": "Qualified"
   },
   {
@@ -127,11 +127,11 @@
   },
   {
     "id": "15",
-    "name": "Lucas Silva",
+    "name": "Emilia Domitila",
     "company": "CloudLink",
-    "email": "lucas@cloudlink.com",
+    "email": "emilia@cloudlink.com",
     "source": "LinkedIn",
-    "score": 79,
+    "score": 100,
     "status": "New"
   },
   {
@@ -167,7 +167,7 @@
     "company": "TechSphere",
     "email": "daniel@techsphere.com",
     "source": "Referral",
-    "score": 80,
+    "score": 97,
     "status": "Contacted"
   },
   {

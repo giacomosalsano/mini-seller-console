@@ -12,7 +12,7 @@ const STATUS_CONFIG: Record<
 > = {
   [LeadStatus.New]: {
     label: "New",
-    variant: "default",
+    variant: "outline",
   },
   [LeadStatus.Contacted]: {
     label: "Contacted",
@@ -32,7 +32,7 @@ export const StatusBadge = ({ status }: StatusBadgeProps) => {
   const config = STATUS_CONFIG[status];
 
   return (
-    <Badge className={`min-w-[100px] rounded-full`} variant={config.variant}>
+    <Badge className={`min-w-[70px] rounded-full`} variant={config.variant}>
       {config.label}
     </Badge>
   );

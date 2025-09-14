@@ -30,9 +30,10 @@ import { toast } from "sonner";
 
 interface EditLeadProps {
   lead: Lead;
+  onUpdateLead: (lead: Lead) => void;
 }
 
-export const EditLead = ({ lead }: EditLeadProps) => {
+export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
   const [formData, setFormData] = useState({
     name: lead.name,
     company: lead.company,
@@ -69,6 +70,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
 
   const handleSave = () => {
     console.log("Salvando dados:", formData);
+    onUpdateLead({ ...formData, id: lead.id });
     toast.success("Lead updated successfully!");
     setIsOpen(false);
   };

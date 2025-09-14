@@ -4,8 +4,10 @@ import { LeadsTable } from "./components/leads-table";
 import { createColumns } from "./components/columns";
 
 export const LeadsPage = () => {
-  const { leads, loading, handleGetLeads } = useLeads();
-  const columns = createColumns();
+  const { leads, loading, handleGetLeads, handleUpdateLead } = useLeads();
+  const columns = createColumns({
+    onUpdateLead: (lead) => handleUpdateLead({ props: lead }),
+  });
 
   useEffect(() => {
     handleGetLeads({ props: {} });

@@ -1,4 +1,4 @@
-import { useCallback,  useState } from "react";
+import { useCallback, useState } from "react";
 import type { Lead } from "../types";
 import { getLeads } from "../services/leadsService";
 import { toast } from "sonner";
@@ -56,9 +56,41 @@ export const useLeads = () => {
     [],
   );
 
+  const handleUpdateLead = useCallback(
+    async ({ props, onSuccess, onError }: Handler<Lead>) => {
+      handleSetProperties({ loading: true });
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      try {
+        handleSetProperties({
+          leads: properties.leads.map((lead) =>
+            lead.id === props.id ? { ...lead, ...props } : lead,
+          ),
+        });
+
+        toast.success("Lead updated successfully!");
+
+        if (onSuccess) {
+          onSuccess();
+        }
+      } catch (error) {
+        if (onError) {
+          onError(error as Error);
+          return;
+        }
+        toast.error("Error updating lead");
+      } finally {
+        handleSetProperties({ loading: false });
+      }
+    },
+    [properties.leads, handleSetProperties],
+  );
+
   return {
     leads: properties.leads,
     loading: properties.loading,
     handleGetLeads,
+    handleUpdateLead,
   };
 };
