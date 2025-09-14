@@ -39,14 +39,11 @@ export const useOpportunities = () => {
           const opportunities = JSON.parse(localData);
           handleSetProperties({ opportunities });
           if (onSuccess) onSuccess(opportunities);
-          toast.success("Opportunities loaded from localStorage");
           return;
         }
 
         const data = await getOpportunities();
         handleSetProperties({ opportunities: data });
-
-        toast.success("Opportunities loaded from API");
 
         localStorage.setItem(OPPORTUNITIES_STORAGE_KEY, JSON.stringify(data));
 

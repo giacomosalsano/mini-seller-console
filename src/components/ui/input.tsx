@@ -23,7 +23,7 @@ function Input({
       />
 
       {errorMessage && (
-        <p className="text-destructive col-span-4 text-right text-sm">
+        <p className="text-destructive text-right text-sm">
           {errorMessage}
         </p>
       )}

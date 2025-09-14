@@ -14,35 +14,64 @@ import {
 import { useMemo, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { SelectComponent } from "@/components/shared/select-component";
 import { SheetFooter } from "@/components/ui/sheet";
-import { toast } from "sonner";
 import { SheetComponent } from "@/components/shared/sheet-component";
+import { Loader2 } from "lucide-react";
 
 interface EditLeadProps {
   lead: Lead;
   onUpdateLead: (lead: Lead) => void;
+  loading: boolean;
 }
 
-export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  company: z.string().min(2, "Company must be at least 2 characters."),
+  email: z.email("Please enter a valid email."),
+  source: z.string().min(2, "Source must be at least 2 characters."),
+  score: z
+    .number()
+    .min(0, "Score must be non-negative.")
+    .max(100, "Score cannot exceed 100."),
+  status: z.enum([
+    LeadStatus.New,
+    LeadStatus.Contacted,
+    LeadStatus.Qualified,
+    LeadStatus.Unqualified,
+  ]),
+});
+
+type FormSchemaType = z.infer<typeof formSchema>;
+
+export const EditLead = ({ lead, onUpdateLead, loading }: EditLeadProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [formData, setFormData] = useState({
-    name: lead.name,
-    company: lead.company,
-    email: lead.email,
-    source: lead.source,
-    score: lead.score,
-    status: lead.status,
+  const [selectedStatus, setSelectedStatus] = useState<string>(lead.status);
+
+  const form = useForm<FormSchemaType>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: lead.name,
+      company: lead.company,
+      email: lead.email,
+      source: lead.source,
+      score: lead.score,
+      status: lead.status,
+    },
   });
 
   const isEditRoute = location.pathname === `/leads/edit/${lead.id}`;
   const isOpen = isEditRoute;
+  const isLoading = loading || form.formState.isSubmitting;
 
   const handleCancel = () => {
-    setFormData({
+    form.reset({
       name: lead.name,
       company: lead.company,
       source: lead.source,
@@ -53,15 +82,14 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
     navigate("/leads");
   };
 
-  const handleSave = () => {
-    console.log("Saving data:", formData);
-    onUpdateLead({ ...formData, id: lead.id });
-    toast.success("Lead updated successfully!");
+  const handleSave = (data: FormSchemaType) => {
+    onUpdateLead({ ...data, id: lead.id });
     navigate("/leads");
   };
 
   const handleOpenChange = (open: boolean) => {
     if (!open) {
+      form.reset();
       navigate("/leads");
     }
   };
@@ -74,16 +102,22 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
         type="button"
         onClick={() => navigate(`/leads/edit/${lead.id}`)}
       >
-        <PencilIcon className="h-4 w-4" />
+        {loading ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <PencilIcon className="h-4 w-4" />
+        )}
       </Button>
     );
-  }, [lead.id, navigate]);
+  }, [lead.id, navigate, loading]);
 
   const statusSelectItems = useMemo(() => {
-    return Object.values(LeadStatus).map((status) => ({
-      value: status,
-      label: status,
-    }));
+    return [
+      { value: LeadStatus.New, label: "New" },
+      { value: LeadStatus.Contacted, label: "Contacted" },
+      { value: LeadStatus.Qualified, label: "Qualified" },
+      { value: LeadStatus.Unqualified, label: "Unqualified" },
+    ];
   }, []);
 
   const leadDetailsContent = useMemo(() => {
@@ -100,7 +134,7 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
           <div className="flex items-center gap-1">
             <User className="text-muted-foreground h-4 w-4" />{" "}
             <p>
-              <span className="font-bold">Name:</span> {formData.name}
+              <span className="font-bold">Name:</span> {form.watch("name")}
             </p>
           </div>
         </div>
@@ -109,11 +143,11 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
           <label htmlFor="name" className="flex items-center gap-1 font-bold">
             <User className="text-muted-foreground h-4 w-4" /> Name
           </label>
+
           <Input
             id="name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="Enter name"
+            {...form.register("name")}
+            errorMessage={form.formState.errors.name?.message}
           />
         </div>
 
@@ -126,11 +160,8 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
           </label>
           <Input
             id="company"
-            value={formData.company}
-            onChange={(e) =>
-              setFormData({ ...formData, company: e.target.value })
-            }
-            placeholder="Enter company"
+            {...form.register("company")}
+            errorMessage={form.formState.errors.company?.message}
           />
         </div>
 
@@ -140,11 +171,19 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
           </label>
           <Input
             id="email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            placeholder="Enter email"
+            {...form.register("email")}
+            errorMessage={form.formState.errors.email?.message}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="source" className="flex items-center gap-1 font-bold">
+            <Globe className="text-muted-foreground h-4 w-4" /> Source
+          </label>
+          <Input
+            id="source"
+            {...form.register("source")}
+            errorMessage={form.formState.errors.source?.message}
           />
         </div>
 
@@ -158,25 +197,8 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
             max={100}
             min={0}
             step={1}
-            value={formData.score}
-            onChange={(e) =>
-              setFormData({ ...formData, score: Number(e.target.value) })
-            }
-            placeholder="Enter score"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <label htmlFor="source" className="flex items-center gap-1 font-bold">
-            <Globe className="text-muted-foreground h-4 w-4" /> Source
-          </label>
-          <Input
-            id="source"
-            value={formData.source}
-            onChange={(e) =>
-              setFormData({ ...formData, source: e.target.value })
-            }
-            placeholder="Enter source"
+            {...form.register("score", { valueAsNumber: true })}
+            errorMessage={form.formState.errors.score?.message}
           />
         </div>
 
@@ -185,11 +207,13 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
             <UserRoundCheck className="text-muted-foreground h-4 w-4" /> Status
           </label>
           <SelectComponent
-            value={formData.status}
-            onValueChange={(value) =>
-              setFormData({ ...formData, status: value as LeadStatus })
-            }
-            defaultValue={formData.status}
+            value={selectedStatus}
+            onValueChange={(value) => {
+              setSelectedStatus(value);
+              form.setValue("status", value as LeadStatus);
+            }}
+            defaultValue={lead.status}
+            placeholder="Status"
             items={statusSelectItems}
           />
         </div>
@@ -198,11 +222,18 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
           <Button variant="outline" onClick={handleCancel}>
             Cancel
           </Button>
-          <Button onClick={handleSave}>Save Changes</Button>
+          <Button
+            type="button"
+            disabled={isLoading}
+            onClick={() => form.handleSubmit(handleSave)()}
+          >
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            Save Changes
+          </Button>
         </SheetFooter>
       </div>
     );
-  }, [formData, lead, statusSelectItems]);
+  }, [form, lead, statusSelectItems, isLoading, selectedStatus]);
 
   return (
     <SheetComponent

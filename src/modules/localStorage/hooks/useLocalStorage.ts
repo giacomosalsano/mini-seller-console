@@ -26,10 +26,10 @@ export function useLocalStorage<T>(
     const timeout = setTimeout(() => {
       setValue(getValueFromLocalStorage(key, initialValue));
       setLoading(false);
-    }, 100);
+    }, 150);
 
     return () => clearTimeout(timeout);
-  }, [key, initialValue]);
+  }, [key]); 
 
   useEffect(() => {
     if (!loading) {

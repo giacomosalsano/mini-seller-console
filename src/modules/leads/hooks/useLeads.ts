@@ -39,14 +39,13 @@ export const useLeads = () => {
           const leads = JSON.parse(localData);
           handleSetProperties({ leads });
           if (onSuccess) onSuccess(leads);
-          toast.success("Leads loaded from localStorage");
+    
           return;
         }
 
         const data = await getLeads();
         handleSetProperties({ leads: data });
 
-        toast.success("Leads loaded from API");
 
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(data));
 

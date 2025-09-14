@@ -34,6 +34,7 @@ export const LeadsPage = ({
     onRemoveLead: (id) => handleRemoveLead({ props: { id } }),
     onAddOpportunity: (opportunity) =>
       handleAddOpportunity({ props: opportunity }),
+    loading: loading,
   });
 
   const currentLead = leads.find((lead) => lead.id === id);
@@ -62,6 +63,7 @@ export const LeadsPage = ({
           onUpdateLead={(updatedLead) =>
             handleUpdateLead({ props: updatedLead })
           }
+          loading={loading}
         />
       )}
 

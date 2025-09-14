@@ -12,12 +12,14 @@ interface CreateColumnsProps {
   onUpdateLead: (lead: Lead) => void;
   onRemoveLead: (id: string) => void;
   onAddOpportunity: (opportunity: Opportunity) => void;
+  loading: boolean;
 }
 
 export const createColumns = ({
   onUpdateLead,
   onRemoveLead,
   onAddOpportunity,
+  loading,
 }: CreateColumnsProps): ColumnDef<Lead>[] => [
   {
     accessorKey: "id",
@@ -90,7 +92,11 @@ export const createColumns = ({
       return (
         <div className="flex justify-center gap-2">
           <LeadDetails lead={row.original} />
-          <EditLead lead={row.original} onUpdateLead={onUpdateLead} />
+          <EditLead
+            lead={row.original}
+            onUpdateLead={onUpdateLead}
+            loading={loading}
+          />
           <ConvertLead
             lead={row.original}
             onRemoveLead={onRemoveLead}
@@ -106,4 +112,5 @@ export const columns = createColumns({
   onUpdateLead: () => {},
   onRemoveLead: () => {},
   onAddOpportunity: () => {},
+  loading: false,
 });
