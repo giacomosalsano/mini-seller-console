@@ -16,30 +16,30 @@ import {
   type ColumnFiltersState,
   type SortingState,
 } from "@tanstack/react-table";
-import type { Lead } from "../../../modules/leads/types";
+import type { Opportunity } from "../../../modules/opportunities/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Filters } from "../../../components/shared/filters";
 
-interface LeadsTableProps<TData, TValue> {
-  leads: Lead[];
+interface OpportunitiesTableProps<TData, TValue> {
+  opportunities: Opportunity[];
   loading: boolean;
   columns: ColumnDef<TData, TValue>[];
 }
 
-export const LeadsTable = <TData, TValue>({
-  leads,
+export const OpportunitiesTable = <TData, TValue>({
+  opportunities,
   loading,
   columns,
-}: LeadsTableProps<TData, TValue>) => {
+}: OpportunitiesTableProps<TData, TValue>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
   const table = useReactTable({
-    data: leads as TData[],
+    data: opportunities as TData[],
     columns,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -48,15 +48,15 @@ export const LeadsTable = <TData, TValue>({
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: (row, _columnId, filterValue) => {
-      const lead = row.original as any;
+      const opportunity = row.original as any;
       const searchValue = filterValue.toLowerCase();
 
       const matches =
-        (lead.name?.toLowerCase() || "").includes(searchValue) ||
-        (lead.id?.toString() || "").includes(searchValue) ||
-        (lead.company?.toLowerCase() || "").includes(searchValue) ||
-        (lead.email?.toLowerCase() || "").includes(searchValue) ||
-        (lead.source?.toLowerCase() || "").includes(searchValue);
+        (opportunity.name?.toLowerCase() || "").includes(searchValue) ||
+        (opportunity.id?.toString() || "").includes(searchValue) ||
+        (opportunity.company?.toLowerCase() || "").includes(searchValue) ||
+        (opportunity.email?.toLowerCase() || "").includes(searchValue) ||
+        (opportunity.source?.toLowerCase() || "").includes(searchValue);
 
       return matches;
     },
@@ -156,7 +156,7 @@ export const LeadsTable = <TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No lead found.
+                  No opportunity found.
                 </TableCell>
               </TableRow>
             )}
@@ -171,7 +171,7 @@ export const LeadsTable = <TData, TValue>({
           ) : (
             <>
               Showing {table.getFilteredRowModel().rows.length} of{" "}
-              {table.getRowModel().rows.length} leads
+              {table.getRowModel().rows.length} opportunities
             </>
           )}
         </div>

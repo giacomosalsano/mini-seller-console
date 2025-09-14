@@ -36,8 +36,6 @@ export const useLeads = () => {
 
         handleSetProperties({ leads: data });
 
-        toast.success("Leads listed successfully");
-
         if (onSuccess) {
           onSuccess(data);
           return data;

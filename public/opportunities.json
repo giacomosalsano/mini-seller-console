@@ -1,0 +1,152 @@
+[
+  {
+    "id": "51",
+    "name": "Isabella Conti",
+    "company": "Conti Group",
+    "email": "isabella.conti@contigroup.it",
+    "source": "Website",
+    "stage": "Proposal Sent",
+    "amountInCents": 1120000,
+    "accountName": "Conti Group"
+  },
+  {
+    "id": "54",
+    "name": "Julien Bernard",
+    "company": "CloudForge",
+    "email": "julien.bernard@cloudforge.fr",
+    "source": "Website",
+    "stage": "Proposal Sent",
+    "amountInCents": 1000000,
+    "accountName": "CloudForge"
+  },
+  {
+    "id": "56",
+    "name": "Claire Dubois",
+    "company": "SolutionPro SAS",
+    "email": "claire.dubois@solutionpro.fr",
+    "source": "Referral",
+    "stage": "Qualified",
+    "amountInCents": 975000,
+    "accountName": "SolutionPro"
+  },
+  {
+    "id": "61",
+    "name": "Sophie Renault",
+    "company": "Renault Systems",
+    "email": "sophie.renault@renaultsys.fr",
+    "source": "LinkedIn",
+    "stage": "Qualified",
+    "amountInCents": 1470000,
+    "accountName": "Renault Systems"
+  },
+  {
+    "id": "63",
+    "name": "Giovanni Moretti",
+    "company": "Moretti Solutions",
+    "email": "giovanni.moretti@morettisol.it",
+    "source": "Event",
+    "stage": "New",
+    "amountInCents": 680000,
+    "accountName": "Moretti Solutions"
+  },
+  {
+    "id": "67",
+    "name": "Camila Souza",
+    "company": "StartNow",
+    "email": "camila.souza@startnow.com.br",
+    "source": "Inbound",
+    "stage": "New",
+    "amountInCents": 2200000,
+    "accountName": "StartNow"
+  },
+  {
+    "id": "73",
+    "name": "Giulia Bianchi",
+    "company": "TechItalia S.p.A.",
+    "email": "giulia.bianchi@techitalia.it",
+    "source": "LinkedIn",
+    "stage": "Negotiation",
+    "amountInCents": 1200000,
+    "accountName": "TechItalia"
+  },
+  {
+    "id": "76",
+    "name": "Laura Mancini",
+    "company": "Mancini Digital",
+    "email": "laura.mancini@mancinidigital.it",
+    "source": "Partner",
+    "stage": "Contacted",
+    "amountInCents": 890000,
+    "accountName": "Mancini Digital"
+  },
+  {
+    "id": "78",
+    "name": "Rafael Lima",
+    "company": "Lima Logística",
+    "email": "rafael.lima@limalog.com.br",
+    "source": "Outbound",
+    "stage": "Contacted",
+    "amountInCents": 1080000,
+    "accountName": "Lima Logística"
+  },
+  {
+    "id": "84",
+    "name": "Antoine Lefèvre",
+    "company": "NexaCloud",
+    "email": "antoine.lefevre@nexacloud.fr",
+    "source": "Partner",
+    "stage": "Qualified",
+    "amountInCents": 1560000,
+    "accountName": "NexaCloud"
+  },
+  {
+    "id": "87",
+    "name": "Fernanda Ribeiro",
+    "company": "Ribeiro Tech",
+    "email": "fernanda.ribeiro@ribeirotech.com.br",
+    "source": "LinkedIn",
+    "stage": "Qualified",
+    "amountInCents": 1420000,
+    "accountName": "Ribeiro Tech"
+  },
+  {
+    "id": "89",
+    "name": "Lucas Andrade",
+    "company": "InovaTech Brasil",
+    "email": "lucas.andrade@inovatech.com.br",
+    "source": "Website",
+    "stage": "Proposal Sent",
+    "amountInCents": 1850000,
+    "accountName": "InovaTech"
+  },
+  {
+    "id": "92",
+    "name": "Matteo Rossi",
+    "company": "Digitale Roma",
+    "email": "matteo.rossi@digitaleroma.it",
+    "source": "Event",
+    "stage": "Contacted",
+    "amountInCents": 730000,
+    "accountName": "Digitale Roma"
+  },
+  {
+    "id": "95",
+    "name": "Élise Martin",
+    "company": "DigitalFlow",
+    "email": "elise.martin@digitalflow.fr",
+    "source": "Referral",
+    "stage": "Negotiation",
+    "amountInCents": 1340000,
+    "accountName": "DigitalFlow"
+  },
+  {
+    "id": "99",
+    "name": "Thiago Almeida",
+    "company": "NextLevel BR",
+    "email": "thiago.almeida@nextlevel.com.br",
+    "source": "Inbound",
+    "stage": "Negotiation",
+    "amountInCents": 2530000,
+    "accountName": "NextLevel"
+  }
+]
