@@ -13,10 +13,10 @@ import {
   UserRoundCheck,
 } from "lucide-react";
 
-import { useMemo, useState, useEffect } from "react"; 
+import { useMemo, useState, useEffect } from "react";
 
-import { Input } from "@/components/ui/input"; 
-import { SelectComponent } from "@/components/shared/select-component"; 
+import { Input } from "@/components/ui/input";
+import { SelectComponent } from "@/components/shared/select-component";
 import {
   Sheet,
   SheetContent,
@@ -25,7 +25,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"; 
+} from "@/components/ui/sheet";
 import { toast } from "sonner";
 
 interface EditLeadProps {
@@ -69,7 +69,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
 
   const handleSave = () => {
     console.log("Salvando dados:", formData);
-    toast.success("Lead updated successfully!"); 
+    toast.success("Lead updated successfully!");
     setIsOpen(false);
   };
 
@@ -96,7 +96,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
   const leadDetailsContent = useMemo(() => {
     return (
       <div className="flex flex-col gap-6 p-4">
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex items-center gap-4">
           <div className="flex items-center gap-1">
             <IdCard className="text-muted-foreground h-4 w-4" />{" "}
             <p>
@@ -111,12 +111,8 @@ export const EditLead = ({ lead }: EditLeadProps) => {
           </div>
         </div>
 
-
         <div className="space-y-2">
-          <label
-            htmlFor="name"
-            className="flex items-center gap-1 text-sm font-bold"
-          >
+          <label htmlFor="name" className="flex items-center gap-1 font-bold">
             <User className="text-muted-foreground h-4 w-4" /> Name
           </label>
           <Input
@@ -130,7 +126,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
         <div className="space-y-2">
           <label
             htmlFor="company"
-            className="flex items-center gap-1 text-sm font-bold"
+            className="flex items-center gap-1 font-bold"
           >
             <Building2 className="text-muted-foreground h-4 w-4" /> Company
           </label>
@@ -145,10 +141,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
         </div>
 
         <div className="space-y-2">
-          <label
-            htmlFor="email"
-            className="flex items-center gap-1 text-sm font-bold"
-          >
+          <label htmlFor="email" className="flex items-center gap-1 font-bold">
             <AtSign className="text-muted-foreground h-4 w-4" /> Email
           </label>
           <Input
@@ -162,10 +155,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
         </div>
 
         <div className="space-y-2">
-          <label
-            htmlFor="score"
-            className="flex items-center gap-1 text-sm font-bold"
-          >
+          <label htmlFor="score" className="flex items-center gap-1 font-bold">
             <FileDigit className="text-muted-foreground h-4 w-4" /> Score
           </label>
           <Input
@@ -183,10 +173,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
         </div>
 
         <div className="space-y-2">
-          <label
-            htmlFor="source"
-            className="flex items-center gap-1 text-sm font-bold"
-          >
+          <label htmlFor="source" className="flex items-center gap-1 font-bold">
             <Globe className="text-muted-foreground h-4 w-4" /> Source
           </label>
           <Input
@@ -200,10 +187,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
         </div>
 
         <div className="space-y-2">
-          <label
-            htmlFor="status"
-            className="flex items-center gap-1 text-sm font-bold"
-          >
+          <label htmlFor="status" className="flex items-center gap-1 font-bold">
             <UserRoundCheck className="text-muted-foreground h-4 w-4" /> Status
           </label>
           <SelectComponent
@@ -216,7 +200,7 @@ export const EditLead = ({ lead }: EditLeadProps) => {
           />
         </div>
 
-        <SheetFooter className=" flex flex-row gap-2 place-content-end">
+        <SheetFooter className="flex flex-row place-content-end gap-2">
           <Button variant="outline" onClick={handleCancel}>
             Cancel
           </Button>

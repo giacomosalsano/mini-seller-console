@@ -31,25 +31,23 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
 
   const leadDetailsContent = useMemo(() => {
     return (
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col gap-6 p-4">
         <div className="flex items-center gap-4">
-          <div className="flex flex-row items-center justify-center gap-1">
-            <div className="flex flex-row items-center gap-1">
-              <IdCard className="h-4 w-4" />
-              <p className="font-bold">ID:</p>
-            </div>
-            <p>{lead.id}</p>
+          <div className="flex items-center gap-1">
+            <IdCard className="text-muted-foreground h-4 w-4" />{" "}
+            <p>
+              <span className="font-bold">ID:</span> {lead.id}
+            </p>
           </div>
-          <div className="flex flex-row items-center justify-center gap-1">
-            <div className="flex flex-row items-center gap-1">
-              <User className="h-4 w-4" />
-              <p className="font-bold">Name:</p>
-            </div>
-            <p>{lead.name}</p>
+          <div className="flex items-center gap-1">
+            <User className="text-muted-foreground h-4 w-4" />{" "}
+            <p>
+              <span className="font-bold">Name:</span> {lead.name}
+            </p>
           </div>
         </div>
 
-        <div className="flex flex-row items-center justify-between gap-1">
+        <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
             <Building2 className="h-4 w-4" />
             <p className="font-bold">Company:</p>
@@ -57,7 +55,7 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
           <p>{lead.company}</p>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-1">
+        <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
             <AtSign className="h-4 w-4" />
             <p className="font-bold">Email:</p>
@@ -65,7 +63,7 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
           <p>{lead.email}</p>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-1">
+        <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
             <Globe className="h-4 w-4" />
             <p className="font-bold">Source:</p>
@@ -73,7 +71,7 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
           <p>{lead.source}</p>
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-1">
+        <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
             <FileDigit className="h-4 w-4" />
             <p className="hidden font-bold md:block">Score:</p>
@@ -81,7 +79,7 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
           <ScoreBadge score={lead.score} />
         </div>
 
-        <div className="flex flex-row items-center justify-center gap-1">
+        <div className="flex flex-row gap-1">
           <div className="flex flex-row items-center gap-1">
             <UserRoundCheck className="h-4 w-4" />
             <p className="font-bold">Status:</p>
