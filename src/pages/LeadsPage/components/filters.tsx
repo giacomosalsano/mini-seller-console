@@ -10,6 +10,7 @@ import type {
 import { BrushCleaningIcon, Search } from "lucide-react";
 import { useMemo } from "react";
 import { LeadStatus } from "@/modules/leads/types";
+import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
 
 interface LeadsFiltersProps {
   globalFilter: string;
@@ -86,6 +87,9 @@ export function LeadsFilters({
             setGlobalFilter("");
             setColumnFilters([]);
             setSorting([]);
+            useLocalStorage("leads-global-filter", "");
+            useLocalStorage("leads-filters", []);
+            useLocalStorage("leads-sorting", []);
           }}
         >
           <BrushCleaningIcon />

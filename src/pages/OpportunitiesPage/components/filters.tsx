@@ -10,6 +10,7 @@ import type {
 import { BrushCleaningIcon, Search } from "lucide-react";
 import { useMemo } from "react";
 import { OpportunityStage } from "@/modules/opportunities/types";
+import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
 
 interface OpportunitiesFiltersProps {
   globalFilter: string;
@@ -94,6 +95,9 @@ export function OpportunitiesFilters({
             setGlobalFilter("");
             setColumnFilters([]);
             setSorting([]);
+            useLocalStorage("opportunities-global-filter", "");
+            useLocalStorage("opportunities-filters", []);
+            useLocalStorage("opportunities-sorting", []);
           }}
         >
           <BrushCleaningIcon />

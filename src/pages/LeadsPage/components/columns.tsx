@@ -5,13 +5,19 @@ import { StatusBadge } from "@/components/shared/status-badge";
 import { LeadDetails } from "./actions/lead-detail";
 import { ScoreBadge } from "@/components/shared/score-badge";
 import { EditLead } from "./actions/edit-lead";
+import { ConvertLead } from "./actions/convert-lead";
+import type { Opportunity } from "@/modules/opportunities/types";
 
 interface CreateColumnsProps {
   onUpdateLead: (lead: Lead) => void;
+  onRemoveLead: (id: string) => void;
+  onAddOpportunity: (opportunity: Opportunity) => void;
 }
 
 export const createColumns = ({
   onUpdateLead,
+  onRemoveLead,
+  onAddOpportunity,
 }: CreateColumnsProps): ColumnDef<Lead>[] => [
   {
     accessorKey: "id",
@@ -85,10 +91,19 @@ export const createColumns = ({
         <div className="flex justify-center gap-2">
           <LeadDetails lead={row.original} />
           <EditLead lead={row.original} onUpdateLead={onUpdateLead} />
+          <ConvertLead
+            lead={row.original}
+            onRemoveLead={onRemoveLead}
+            onAddOpportunity={onAddOpportunity}
+          />
         </div>
       );
     },
   },
 ];
 
-export const columns = createColumns({ onUpdateLead: () => {} });
+export const columns = createColumns({
+  onUpdateLead: () => {},
+  onRemoveLead: () => {},
+  onAddOpportunity: () => {},
+});

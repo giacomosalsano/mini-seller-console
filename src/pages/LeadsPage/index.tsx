@@ -5,12 +5,15 @@ import { useLocation, useParams } from "react-router-dom";
 import { EditLead } from "./components/actions/edit-lead";
 import { LeadDetails } from "./components/actions/lead-detail";
 import type { Lead } from "@/modules/leads/types";
+import type { Opportunity } from "@/modules/opportunities/types";
 
 interface LeadsPageProps {
   leads: Lead[];
   loading: boolean;
   handleGetLeads: (props: { props: {} }) => void;
   handleUpdateLead: (props: { props: Lead }) => void;
+  handleRemoveLead: (props: { props: { id: string } }) => void;
+  handleAddOpportunity: (props: { props: Opportunity }) => void;
 }
 
 export const LeadsPage = ({
@@ -18,12 +21,17 @@ export const LeadsPage = ({
   loading,
   handleGetLeads,
   handleUpdateLead,
+  handleRemoveLead,
+  handleAddOpportunity,
 }: LeadsPageProps) => {
   const location = useLocation();
   const { id } = useParams();
 
   const columns = createColumns({
     onUpdateLead: (lead) => handleUpdateLead({ props: lead }),
+    onRemoveLead: (id) => handleRemoveLead({ props: { id } }),
+    onAddOpportunity: (opportunity) =>
+      handleAddOpportunity({ props: opportunity }),
   });
 
   const currentLead = leads.find((lead) => lead.id === id);

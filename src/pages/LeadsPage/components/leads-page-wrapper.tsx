@@ -1,21 +1,33 @@
-import { useLeads } from "../../../modules/leads/hooks/useLeads";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { LeadsPage } from "../index";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, UserX } from "lucide-react";
 import { SheetComponent } from "@/components/shared/sheet-component";
+import type { Lead } from "@/modules/leads/types";
+import type { Opportunity } from "@/modules/opportunities/types";
 
-export const LeadsPageWrapper = () => {
-  const { leads, loading, handleGetLeads, handleUpdateLead } = useLeads();
+interface LeadsPageWrapperProps {
+  leads: Lead[];
+  loading: boolean;
+  handleGetLeads: (props: { props: {} }) => void;
+  handleUpdateLead: (props: { props: Lead }) => void;
+  handleRemoveLead: (props: { props: { id: string } }) => void;
+  handleAddOpportunity: (props: { props: Opportunity }) => void;
+}
+
+export const LeadsPageWrapper = ({
+  leads,
+  loading,
+  handleGetLeads,
+  handleUpdateLead,
+  handleRemoveLead,
+  handleAddOpportunity,
+}: LeadsPageWrapperProps) => {
   const location = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [showNotFoundSheet, setShowNotFoundSheet] = useState(false);
-
-  useEffect(() => {
-    handleGetLeads({ props: {} });
-  }, [handleGetLeads]);
 
   const isLeadRoute =
     location.pathname.startsWith("/leads/edit/") ||
@@ -69,6 +81,8 @@ export const LeadsPageWrapper = () => {
         loading={loading}
         handleGetLeads={handleGetLeads}
         handleUpdateLead={handleUpdateLead}
+        handleRemoveLead={handleRemoveLead}
+        handleAddOpportunity={handleAddOpportunity}
       />
 
       <SheetComponent

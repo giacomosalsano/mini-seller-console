@@ -96,6 +96,7 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
               <span className="font-bold">ID:</span> {lead.id}
             </p>
           </div>
+          
           <div className="flex items-center gap-1">
             <User className="text-muted-foreground h-4 w-4" />{" "}
             <p>

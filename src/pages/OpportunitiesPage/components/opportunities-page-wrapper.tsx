@@ -1,21 +1,26 @@
-import { useOpportunities } from "../../../modules/opportunities/hooks/useOpportunities";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { OpportunitiesPage } from "../index";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, UserX } from "lucide-react";
 import { SheetComponent } from "@/components/shared/sheet-component";
+import type { Opportunity } from "@/modules/opportunities/types";
 
-export const OpportunitiesPageWrapper = () => {
-  const { opportunities, loading, handleGetOpportunities } = useOpportunities();
+interface OpportunitiesPageWrapperProps {
+  opportunities: Opportunity[];
+  loading: boolean;
+  handleGetOpportunities: (props: { props: {} }) => void;
+}
+
+export const OpportunitiesPageWrapper = ({
+  opportunities,
+  loading,
+  handleGetOpportunities,
+}: OpportunitiesPageWrapperProps) => {
   const location = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [showNotFoundSheet, setShowNotFoundSheet] = useState(false);
-
-  useEffect(() => {
-    handleGetOpportunities({ props: {} });
-  }, [handleGetOpportunities]);
 
   const isOpportunityRoute = location.pathname.startsWith(
     "/opportunities/details/",

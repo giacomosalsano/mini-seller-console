@@ -10,18 +10,18 @@
   },
   {
     "id": "7",
-    "name": "Giulia Rossi",
-    "company": "VenditaOnline",
-    "email": "giulia@venditaonline.it",
+    "name": "Domitila Rebeca",
+    "company": "Versa",
+    "email": "domitila@versa.com.br",
     "source": "Referral",
     "score": 34,
     "status": "Contacted"
   },
   {
     "id": "12",
-    "name": "Marco Conti",
-    "company": "SoftItalia",
-    "email": "marco@softitalia.it",
+    "name": "Emilia Marques",
+    "company": "CESAS",
+    "email": "emilia@cesas.com.br",
     "source": "LinkedIn",
     "score": 92,
     "status": "Qualified"
