@@ -2,6 +2,8 @@ import type { ColumnDef } from "@tanstack/react-table";
 
 import type { Lead } from "../../../modules/leads/types";
 import { StatusBadge } from "@/components/shared/status-badge";
+import { LeadDetails } from "./actions/lead-detail";
+import { ScoreBadge } from "@/components/shared/score-badge";
 
 export const createColumns = (): ColumnDef<Lead>[] => [
   {
@@ -42,6 +44,13 @@ export const createColumns = (): ColumnDef<Lead>[] => [
     header: "Score",
     enableSorting: true,
     enableColumnFilter: false,
+    cell: ({ row }) => {
+      return (
+        <div>
+          <ScoreBadge score={row.original.score} />
+        </div>
+      );
+    },
   },
   {
     accessorKey: "status",
@@ -64,8 +73,12 @@ export const createColumns = (): ColumnDef<Lead>[] => [
     header: "Actions",
     enableSorting: false,
     enableColumnFilter: false,
-    cell: () => {
-      return <div className="flex justify-center gap-2">Actions Here</div>;
+    cell: ({ row }) => {
+      return (
+        <div className="flex justify-center gap-2">
+          <LeadDetails lead={row.original} />
+        </div>
+      );
     },
   },
 ];

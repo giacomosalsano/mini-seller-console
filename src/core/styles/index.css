@@ -16,10 +16,9 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-female: var(--female);
-  --color-male: var(--male);
   --color-alarm: var(--alarm);
   --color-success: var(--success);
+  --color-warning: var(--warning);
   --color-info: var(--info);
   --color-hover: var(--hover);
   --color-no-alarm: var(--no-alarm);
@@ -75,11 +74,10 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --female: oklch(70.4% 0.191 22.216);
-  --male: oklch(70.7% 0.165 254.624);
   --alarm: oklch(70.4% 0.191 22.216);
   --no-alarm: oklch(70.7% 0.165 254.624);
   --success: oklch(0.68 0.19 140);
+  --warning: oklch(0.74 0.22 60);
   --info: oklch(70.7% 0.165 254.624);
   --hover: oklch(0.97 0 0 / 90%);
   --chart-1: oklch(0.58 0.12 10);
@@ -122,11 +120,10 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --female: oklch(70.4% 0.191 22.216);
-  --male: oklch(70.7% 0.165 254.624);
   --alarm: oklch(70.4% 0.191 22.216);
   --no-alarm: oklch(70.7% 0.165 254.624);
   --success: oklch(0.68 0.19 140);
+  --warning: oklch(0.74 0.22 60);
   --info: oklch(70.7% 0.165 254.624);
   --hover: oklch(1 0 0 / 10%);
   --chart-1: oklch(0.7 0.18 10);

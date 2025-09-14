@@ -14,7 +14,7 @@
     "company": "VenditaOnline",
     "email": "giulia@venditaonline.it",
     "source": "Referral",
-    "score": 85,
+    "score": 34,
     "status": "Contacted"
   },
   {
@@ -41,7 +41,7 @@
     "company": "Ricerca360",
     "email": "francesca@ricerca360.it",
     "source": "Website",
-    "score": 88,
+    "score": 56,
     "status": "Contacted"
   },
   {
@@ -68,7 +68,7 @@
     "company": "InovaTech",
     "email": "ana@inovatech.com",
     "source": "Website",
-    "score": 83,
+    "score": 43,
     "status": "New"
   },
   {
@@ -94,8 +94,8 @@
     "name": "Ricardo Lima",
     "company": "NextGen AI",
     "email": "ricardo@nextgenai.com",
-    "source": "LinkedIn",
-    "score": 76,
+    "source": "Referral",
+    "score": 62,
     "status": "Unqualified"
   },
   {
@@ -113,7 +113,7 @@
     "company": "CyberWorks",
     "email": "paulo@cyberworks.com",
     "source": "Referral",
-    "score": 81,
+    "score": 13,
     "status": "Contacted"
   },
   {

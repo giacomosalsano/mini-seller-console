@@ -16,7 +16,7 @@ const STATUS_CONFIG: Record<
   },
   [LeadStatus.Contacted]: {
     label: "Contacted",
-    variant: "secondary",
+    variant: "info",
   },
   [LeadStatus.Qualified]: {
     label: "Qualified",
