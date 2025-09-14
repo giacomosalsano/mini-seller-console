@@ -4,6 +4,7 @@ import type { Lead } from "../../../modules/leads/types";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { LeadDetails } from "./actions/lead-detail";
 import { ScoreBadge } from "@/components/shared/score-badge";
+import { EditLead } from "./actions/edit-lead";
 
 export const createColumns = (): ColumnDef<Lead>[] => [
   {
@@ -77,6 +78,7 @@ export const createColumns = (): ColumnDef<Lead>[] => [
       return (
         <div className="flex justify-center gap-2">
           <LeadDetails lead={row.original} />
+          <EditLead lead={row.original} />
         </div>
       );
     },
