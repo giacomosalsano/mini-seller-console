@@ -1,4 +1,4 @@
-import { LeadsPage } from "./modules/leads/pages/LeadsPage";
+import { LeadsPage } from "./pages/LeadsPage";
 import { Header } from "./components/shared/header";
 
 function App() {
