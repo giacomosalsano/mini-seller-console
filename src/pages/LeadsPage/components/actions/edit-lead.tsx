@@ -16,16 +16,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { Input } from "@/components/ui/input";
 import { SelectComponent } from "@/components/shared/select-component";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { SheetFooter } from "@/components/ui/sheet";
 import { toast } from "sonner";
+import { SheetComponent } from "@/components/shared/sheet-component";
 
 interface EditLeadProps {
   lead: Lead;
@@ -45,7 +38,6 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
     status: lead.status,
   });
 
-  // Verifica se a rota atual é de edição deste lead e define o estado do sheet
   const isEditRoute = location.pathname === `/leads/edit/${lead.id}`;
   const isOpen = isEditRoute;
 
@@ -62,7 +54,7 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
   };
 
   const handleSave = () => {
-    console.log("Salvando dados:", formData);
+    console.log("Saving data:", formData);
     onUpdateLead({ ...formData, id: lead.id });
     toast.success("Lead updated successfully!");
     navigate("/leads");
@@ -212,17 +204,13 @@ export const EditLead = ({ lead, onUpdateLead }: EditLeadProps) => {
   }, [formData, lead, statusSelectItems]);
 
   return (
-    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
-      <SheetTrigger asChild>{leadDetailsTrigger}</SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit Lead</SheetTitle>
-          <SheetDescription>
-            Make changes to the lead details here.
-          </SheetDescription>
-        </SheetHeader>
-        {leadDetailsContent}
-      </SheetContent>
-    </Sheet>
+    <SheetComponent
+      open={isOpen}
+      onOpenChange={handleOpenChange}
+      trigger={leadDetailsTrigger}
+      title="Edit Lead"
+      description="Make changes to the lead details here."
+      children={leadDetailsContent}
+    />
   );
 };

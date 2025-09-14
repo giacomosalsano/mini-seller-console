@@ -13,16 +13,9 @@ import {
 
 import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { ScoreBadge } from "@/components/shared/score-badge";
+import { SheetComponent } from "@/components/shared/sheet-component";
 
 interface LeadDetailsProps {
   lead: Lead;
@@ -32,7 +25,6 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Verifica se a rota atual é de detalhes deste lead e define o estado do sheet
   const isDetailsRoute = location.pathname === `/leads/details/${lead.id}`;
   const isOpen = isDetailsRoute;
 
@@ -117,17 +109,13 @@ export const LeadDetails = ({ lead }: LeadDetailsProps) => {
   }, [lead]);
 
   return (
-    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
-      <SheetTrigger asChild>{leadDetailsTrigger}</SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Lead Details</SheetTitle>
-          <SheetDescription>
-            Here you can see the lead details.
-          </SheetDescription>
-        </SheetHeader>
-        {leadDetailsContent}
-      </SheetContent>
-    </Sheet>
+    <SheetComponent
+      open={isOpen}
+      onOpenChange={handleOpenChange}
+      trigger={leadDetailsTrigger}
+      title="Lead Details"
+      description="Here you can see the lead details."
+      children={leadDetailsContent}
+    />
   );
 };

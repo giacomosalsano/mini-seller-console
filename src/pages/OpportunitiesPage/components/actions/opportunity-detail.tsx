@@ -13,9 +13,10 @@ import {
 } from "lucide-react";
 
 import { useMemo } from "react";
-import { SheetComponent } from "@/components/shared/sheet-component";
+import { useNavigate, useLocation } from "react-router-dom";
 import { formatCurrency, Locale } from "@/utils/currency";
 import { StageBadge } from "@/components/shared/stage-badge";
+import { SheetComponent } from "@/components/shared/sheet-component";
 
 interface OpportunityDetailsProps {
   opportunity: Opportunity;
@@ -24,13 +25,31 @@ interface OpportunityDetailsProps {
 export const OpportunityDetails = ({
   opportunity,
 }: OpportunityDetailsProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isDetailsRoute =
+    location.pathname === `/opportunities/details/${opportunity.id}`;
+  const isOpen = isDetailsRoute;
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open) {
+      navigate("/opportunities");
+    }
+  };
+
   const opportunityDetailsTrigger = useMemo(() => {
     return (
-      <Button variant="outline" size="sm" type="button">
+      <Button
+        variant="outline"
+        size="sm"
+        type="button"
+        onClick={() => navigate(`/opportunities/details/${opportunity.id}`)}
+      >
         <EyeIcon className="h-4 w-4" />
       </Button>
     );
-  }, []);
+  }, [opportunity.id, navigate]);
 
   const opportunityDetailsContent = useMemo(() => {
     return (
@@ -108,6 +127,8 @@ export const OpportunityDetails = ({
 
   return (
     <SheetComponent
+      open={isOpen}
+      onOpenChange={handleOpenChange}
       trigger={opportunityDetailsTrigger}
       title="Opportunity Details"
       description="Here you can see the opportunity details."

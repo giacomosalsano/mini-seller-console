@@ -2,10 +2,19 @@ import { useEffect } from "react";
 import { useOpportunities } from "../../modules/opportunities/hooks/useOpportunities";
 import { OpportunitiesTable } from "./components/opportunities-table";
 import { createColumns } from "./components/columns";
+import { useLocation, useParams } from "react-router-dom";
+import { OpportunityDetails } from "./components/actions/opportunity-detail";
 
 export const OpportunitiesPage = () => {
   const { opportunities, loading, handleGetOpportunities } = useOpportunities();
+  const location = useLocation();
+  const { id } = useParams();
+
   const columns = createColumns();
+
+  const currentOpportunity = opportunities.find(
+    (opportunity) => opportunity.id === id,
+  );
 
   useEffect(() => {
     handleGetOpportunities({ props: {} });
@@ -23,6 +32,11 @@ export const OpportunitiesPage = () => {
         loading={loading}
         columns={columns}
       />
+
+      {currentOpportunity &&
+        location.pathname === `/opportunities/details/${id}` && (
+          <OpportunityDetails opportunity={currentOpportunity} />
+        )}
     </div>
   );
 };

@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/sheet";
 
 interface SheetComponentProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
   trigger: React.ReactNode;
   title: string;
   description: string;
@@ -15,13 +17,15 @@ interface SheetComponentProps {
 }
 
 export function SheetComponent({
+  open,
+  onOpenChange,
   trigger,
   title,
   description,
   children,
 }: SheetComponentProps) {
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent>
         <SheetHeader>

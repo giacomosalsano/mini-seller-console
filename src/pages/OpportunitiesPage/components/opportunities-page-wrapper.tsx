@@ -1,51 +1,54 @@
-import { useLeads } from "../../../modules/leads/hooks/useLeads";
+import { useOpportunities } from "../../../modules/opportunities/hooks/useOpportunities";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import { LeadsPage } from "../index";
+import { OpportunitiesPage } from "../index";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, UserX } from "lucide-react";
 import { SheetComponent } from "@/components/shared/sheet-component";
 
-export const LeadsPageWrapper = () => {
-  const { leads, loading, handleGetLeads } = useLeads();
+export const OpportunitiesPageWrapper = () => {
+  const { opportunities, loading, handleGetOpportunities } = useOpportunities();
   const location = useLocation();
   const { id } = useParams();
   const navigate = useNavigate();
   const [showNotFoundSheet, setShowNotFoundSheet] = useState(false);
 
   useEffect(() => {
-    handleGetLeads({ props: {} });
-  }, [handleGetLeads]);
+    handleGetOpportunities({ props: {} });
+  }, [handleGetOpportunities]);
 
-  const isLeadRoute =
-    location.pathname.startsWith("/leads/edit/") ||
-    location.pathname.startsWith("/leads/details/");
+  const isOpportunityRoute = location.pathname.startsWith(
+    "/opportunities/details/",
+  );
 
   useEffect(() => {
-    if (isLeadRoute && !loading && leads.length > 0 && id) {
-      const currentLead = leads.find((lead) => lead.id === id);
+    if (isOpportunityRoute && !loading && opportunities.length > 0 && id) {
+      const currentOpportunity = opportunities.find(
+        (opportunity) => opportunity.id === id,
+      );
 
-      if (!currentLead) {
+      if (!currentOpportunity) {
         setShowNotFoundSheet(true);
       } else {
         setShowNotFoundSheet(false);
       }
     }
-  }, [isLeadRoute, loading, leads, id]);
+  }, [isOpportunityRoute, loading, opportunities, id]);
 
   const handleCloseNotFoundSheet = () => {
     setShowNotFoundSheet(false);
-    navigate("/leads");
+    navigate("/opportunities");
   };
 
-  const leadDetailsContent = useMemo(() => {
+  const opportunityDetailsContent = useMemo(() => {
     return (
-      <div className="flex flex-col items-center gap-6 py-6">
+      <div className="flex flex-col gap-6 py-6 items-center">
         <UserX className="text-destructive h-10 w-10" />
         <div className="text-center">
           <p className="text-muted-foreground">
-            The lead with ID <span className="font-mono font-bold">{id}</span>{" "}
-            could not be found in our system.
+            The opportunity with ID{" "}
+            <span className="font-mono font-bold">{id}</span> could not be found
+            in our system.
           </p>
         </div>
 
@@ -55,7 +58,7 @@ export const LeadsPageWrapper = () => {
             className="flex items-center gap-2"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Leads
+            Back to Opportunities
           </Button>
         </div>
       </div>
@@ -64,15 +67,15 @@ export const LeadsPageWrapper = () => {
 
   return (
     <>
-      <LeadsPage />
+      <OpportunitiesPage />
 
       <SheetComponent
         open={showNotFoundSheet}
         onOpenChange={setShowNotFoundSheet}
         trigger={<Button>Not Found</Button>}
-        title="Lead Not Found"
-        description="The lead you are looking for does not exist."
-        children={leadDetailsContent}
+        title="Opportunity Not Found"
+        description="The opportunity you are looking for does not exist."
+        children={opportunityDetailsContent}
       />
     </>
   );
