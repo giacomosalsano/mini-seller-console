@@ -11,6 +11,7 @@ interface LeadsPageProps {
   leads: Lead[];
   loading: boolean;
   handleGetLeads: (props: { props: {} }) => void;
+  handleAddLead: (props: { props: Omit<Lead, "id"> }) => void;
   handleUpdateLead: (props: { props: Lead }) => void;
   handleRemoveLead: (props: { props: { id: string } }) => void;
   handleAddOpportunity: (props: { props: Opportunity }) => void;
@@ -20,6 +21,7 @@ export const LeadsPage = ({
   leads,
   loading,
   handleGetLeads,
+  handleAddLead,
   handleUpdateLead,
   handleRemoveLead,
   handleAddOpportunity,
@@ -47,9 +49,13 @@ export const LeadsPage = ({
         <p className="text-muted-foreground">Manage your leads</p>
       </div>
 
-      <LeadsTable leads={leads} loading={loading} columns={columns} />
+      <LeadsTable
+        leads={leads}
+        loading={loading}
+        columns={columns}
+        onAddLead={(lead) => handleAddLead({ props: lead })}
+      />
 
-      {/* Renderiza apenas o componente correspondente à rota atual */}
       {currentLead && location.pathname === `/leads/edit/${id}` && (
         <EditLead
           lead={currentLead}

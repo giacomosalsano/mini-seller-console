@@ -68,6 +68,37 @@ export const useLeads = () => {
     [],
   );
 
+  const handleAddLead = useCallback(
+    async ({ props, onSuccess, onError }: Handler<Omit<Lead, "id">>) => {
+      handleSetProperties({ loading: true });
+      await new Promise((resolve) => setTimeout(resolve, 500)); 
+
+      try {
+        const newLead: Lead = {
+          ...props,
+          id: `${Math.floor(Math.random() * 51) + 50}`,
+        };
+
+        const newLeads = [...properties.leads, newLead];
+
+        handleSetProperties({ leads: newLeads });
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(newLeads));
+
+        toast.success("Lead added successfully!");
+        if (onSuccess) onSuccess();
+      } catch (error) {
+        if (onError) {
+          onError(error as Error);
+          return;
+        }
+        toast.error("Error adding lead");
+      } finally {
+        handleSetProperties({ loading: false });
+      }
+    },
+    [properties.leads, handleSetProperties],
+  );
+
   const handleUpdateLead = useCallback(
     async ({ props, onSuccess, onError }: Handler<Lead>) => {
       handleSetProperties({ loading: true });
@@ -130,6 +161,7 @@ export const useLeads = () => {
     leads: properties.leads,
     loading: properties.loading,
     handleGetLeads,
+    handleAddLead,
     handleUpdateLead,
     handleRemoveLead,
   };

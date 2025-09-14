@@ -11,6 +11,7 @@ interface LeadsPageWrapperProps {
   leads: Lead[];
   loading: boolean;
   handleGetLeads: (props: { props: {} }) => void;
+  handleAddLead: (props: { props: Omit<Lead, "id"> }) => void;
   handleUpdateLead: (props: { props: Lead }) => void;
   handleRemoveLead: (props: { props: { id: string } }) => void;
   handleAddOpportunity: (props: { props: Opportunity }) => void;
@@ -20,6 +21,7 @@ export const LeadsPageWrapper = ({
   leads,
   loading,
   handleGetLeads,
+  handleAddLead,
   handleUpdateLead,
   handleRemoveLead,
   handleAddOpportunity,
@@ -80,6 +82,7 @@ export const LeadsPageWrapper = ({
         leads={leads}
         loading={loading}
         handleGetLeads={handleGetLeads}
+        handleAddLead={handleAddLead}
         handleUpdateLead={handleUpdateLead}
         handleRemoveLead={handleRemoveLead}
         handleAddOpportunity={handleAddOpportunity}

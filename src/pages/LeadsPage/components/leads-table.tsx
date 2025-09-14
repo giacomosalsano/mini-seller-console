@@ -22,17 +22,20 @@ import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LeadsFilters } from "./filters";
 import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
+import { AddLeadAction } from "./actions/add-lead";
 
 interface LeadsTableProps<TData, TValue> {
   leads: Lead[];
   loading: boolean;
   columns: ColumnDef<TData, TValue>[];
+  onAddLead: (lead: Omit<Lead, "id">) => void;
 }
 
 export const LeadsTable = <TData, TValue>({
   leads,
   loading,
   columns,
+  onAddLead,
 }: LeadsTableProps<TData, TValue>) => {
   const [sorting, setSorting, isSortingLoading] = useLocalStorage<SortingState>(
     "leads-sorting",
@@ -101,6 +104,7 @@ export const LeadsTable = <TData, TValue>({
           setSorting={setSorting}
           loading={isTableConfigLoading}
         />
+        <AddLeadAction onAddLead={onAddLead} loading={isTableConfigLoading} />
       </div>
 
       <div className="overflow-hidden rounded-md border">
