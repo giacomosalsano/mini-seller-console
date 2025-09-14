@@ -30,10 +30,16 @@ const STATUS_CONFIG: Record<
 
 export const StatusBadge = ({ status }: StatusBadgeProps) => {
   const config = STATUS_CONFIG[status];
+  const isNew = status === LeadStatus.New;
 
   return (
-    <Badge className={`min-w-[70px] rounded-full`} variant={config.variant}>
-      {config.label}
-    </Badge>
+    <div className="relative inline-block">
+      <Badge
+        className={`min-w-[70px] rounded-full ${isNew ? "text-success border-success" : ""}`}
+        variant={config.variant}
+      >
+        {config.label}
+      </Badge>
+    </div>
   );
 };
