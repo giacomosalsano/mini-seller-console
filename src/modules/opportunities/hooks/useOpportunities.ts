@@ -14,6 +14,8 @@ interface Properties {
   opportunities: Opportunity[];
 }
 
+const OPPORTUNITIES_STORAGE_KEY = "mini-seller-opportunities";
+
 export const useOpportunities = () => {
   const [properties, setProperties] = useState<Properties>({
     loading: false,
@@ -32,9 +34,21 @@ export const useOpportunities = () => {
       handleSetProperties({ loading: true });
 
       try {
-        const data = await getOpportunities();
+        const localData = localStorage.getItem(OPPORTUNITIES_STORAGE_KEY);
+        if (localData) {
+          const opportunities = JSON.parse(localData);
+          handleSetProperties({ opportunities });
+          if (onSuccess) onSuccess(opportunities);
+          toast.success("Opportunities loaded from localStorage");
+          return;
+        }
 
+        const data = await getOpportunities();
         handleSetProperties({ opportunities: data });
+
+        toast.success("Opportunities loaded from API");
+
+        localStorage.setItem(OPPORTUNITIES_STORAGE_KEY, JSON.stringify(data));
 
         if (onSuccess) {
           onSuccess(data);
@@ -54,9 +68,37 @@ export const useOpportunities = () => {
     [],
   );
 
+  const handleAddOpportunity = useCallback(
+    async ({ props, onSuccess, onError }: Handler<Opportunity>) => {
+      try {
+        const newOpportunities = [...properties.opportunities, props];
+
+        handleSetProperties({ opportunities: newOpportunities });
+        localStorage.setItem(
+          OPPORTUNITIES_STORAGE_KEY,
+          JSON.stringify(newOpportunities),
+        );
+
+        toast.success("Opportunity added successfully!");
+
+        if (onSuccess) {
+          onSuccess();
+        }
+      } catch (error) {
+        if (onError) {
+          onError(error as Error);
+          return;
+        }
+        toast.error("Error adding opportunity");
+      }
+    },
+    [properties.opportunities, handleSetProperties],
+  );
+
   return {
     opportunities: properties.opportunities,
     loading: properties.loading,
     handleGetOpportunities,
+    handleAddOpportunity,
   };
 };
