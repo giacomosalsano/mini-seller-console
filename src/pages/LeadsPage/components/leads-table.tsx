@@ -18,10 +18,10 @@ import {
 } from "@tanstack/react-table";
 import type { Lead } from "../../../modules/leads/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { LeadsFilters } from "./filters";
+import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
 
 interface LeadsTableProps<TData, TValue> {
   leads: Lead[];
@@ -34,9 +34,18 @@ export const LeadsTable = <TData, TValue>({
   loading,
   columns,
 }: LeadsTableProps<TData, TValue>) => {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [globalFilter, setGlobalFilter] = useState("");
+  const [sorting, setSorting] = useLocalStorage<SortingState>(
+    "leads-sorting",
+    [],
+  );
+  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
+    "leads-filters",
+    [],
+  );
+  const [globalFilter, setGlobalFilter] = useLocalStorage<string>(
+    "leads-global-filter",
+    "",
+  );
 
   const table = useReactTable({
     data: leads as TData[],

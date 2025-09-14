@@ -18,10 +18,10 @@ import {
 } from "@tanstack/react-table";
 import type { Opportunity } from "../../../modules/opportunities/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useState } from "react";
 import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { OpportunitiesFilters } from "./filters";
+import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
 
 interface OpportunitiesTableProps<TData, TValue> {
   opportunities: Opportunity[];
@@ -34,9 +34,18 @@ export const OpportunitiesTable = <TData, TValue>({
   loading,
   columns,
 }: OpportunitiesTableProps<TData, TValue>) => {
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [globalFilter, setGlobalFilter] = useState("");
+  const [sorting, setSorting] = useLocalStorage<SortingState>(
+    "opportunities-sorting",
+    [],
+  );
+  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
+    "opportunities-filters",
+    [],
+  );
+  const [globalFilter, setGlobalFilter] = useLocalStorage<string>(
+    "opportunities-global-filter",
+    "",
+  );
 
   const table = useReactTable({
     data: opportunities as TData[],
