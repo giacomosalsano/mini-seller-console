@@ -71,6 +71,7 @@ export const useOpportunities = () => {
         const newOpportunities = [...properties.opportunities, props];
 
         handleSetProperties({ opportunities: newOpportunities });
+
         localStorage.setItem(
           OPPORTUNITIES_STORAGE_KEY,
           JSON.stringify(newOpportunities),
@@ -90,10 +91,38 @@ export const useOpportunities = () => {
     [properties.opportunities, handleSetProperties],
   );
 
+  const handleEditOpportunity = useCallback(
+    async ({ props, onSuccess, onError }: Handler<Opportunity>) => {
+      try {
+        const updatedOpportunities = properties.opportunities.map(
+          (opportunity) => (opportunity.id === props.id ? props : opportunity),
+        );
+
+        handleSetProperties({ opportunities: updatedOpportunities });
+        localStorage.setItem(
+          OPPORTUNITIES_STORAGE_KEY,
+          JSON.stringify(updatedOpportunities),
+        );
+
+        if (onSuccess) {
+          onSuccess();
+        }
+      } catch (error) {
+        if (onError) {
+          onError(error as Error);
+          return;
+        }
+        toast.error("Error editing opportunity");
+      }
+    },
+    [properties.opportunities, handleSetProperties],
+  );
+
   return {
     opportunities: properties.opportunities,
     loading: properties.loading,
     handleGetOpportunities,
     handleAddOpportunity,
+    handleEditOpportunity,
   };
 };
