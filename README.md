@@ -54,7 +54,7 @@ sequenceDiagram
 
 1. Clone the repository:
    ```bash
-   git clone [repository_url] cd mini-seller-console
+   git clone https://github.com/giacomosalsano/mini-seller-console.git cd mini-seller-console
    ```
 2. Install dependencies:
    ```bash
