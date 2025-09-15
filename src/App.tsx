@@ -29,7 +29,14 @@ function App() {
           />
           <Route
             path="/opportunities/*"
-            element={<OpportunitiesPageWrapper {...opportunitiesData} />}
+            element={
+              <OpportunitiesPageWrapper
+                {...opportunitiesData}
+                handleUpdateOpportunity={
+                  opportunitiesData.handleUpdateOpportunity
+                }
+              />
+            }
           />
           <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />

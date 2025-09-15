@@ -5,8 +5,17 @@ import type { Opportunity } from "../../../modules/opportunities/types";
 import { OpportunityDetails } from "./actions/opportunity-detail";
 import { formatCurrency, Locale } from "@/utils/currency";
 import { StageBadge } from "@/components/shared/stage-badge";
+import { EditOpportunity } from "./actions/edit-opportunity";
 
-export const createColumns = (): ColumnDef<Opportunity>[] => [
+interface CreateColumnsProps {
+  onUpdateOpportunity: (opportunity: Opportunity) => void;
+  loading: boolean;
+}
+
+export const createColumns = ({
+  onUpdateOpportunity,
+  loading,
+}: CreateColumnsProps): ColumnDef<Opportunity>[] => [
   {
     accessorKey: "id",
     header: "ID",
@@ -87,10 +96,18 @@ export const createColumns = (): ColumnDef<Opportunity>[] => [
       return (
         <div className="flex justify-center gap-2">
           <OpportunityDetails opportunity={row.original} />
+          <EditOpportunity
+            opportunity={row.original}
+            onUpdateOpportunity={onUpdateOpportunity}
+            loading={loading}
+          />
         </div>
       );
     },
   },
 ];
 
-export const columns = createColumns();
+export const columns = createColumns({
+  onUpdateOpportunity: () => {},
+  loading: false,
+});

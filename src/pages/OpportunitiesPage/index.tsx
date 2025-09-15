@@ -9,17 +9,23 @@ interface OpportunitiesPageProps {
   opportunities: Opportunity[];
   loading: boolean;
   handleGetOpportunities: (props: { props: {} }) => void;
+  handleUpdateOpportunity: (props: { props: Opportunity }) => void;
 }
 
 export const OpportunitiesPage = ({
   opportunities,
   loading,
   handleGetOpportunities,
+  handleUpdateOpportunity,
 }: OpportunitiesPageProps) => {
   const location = useLocation();
   const { id } = useParams();
 
-  const columns = createColumns();
+  const columns = createColumns({
+    onUpdateOpportunity: (opportunity) =>
+      handleUpdateOpportunity({ props: opportunity }),
+    loading: loading,
+  });
 
   const currentOpportunity = opportunities.find(
     (opportunity) => opportunity.id === id,

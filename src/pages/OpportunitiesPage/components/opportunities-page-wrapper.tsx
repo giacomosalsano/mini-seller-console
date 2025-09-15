@@ -10,12 +10,14 @@ interface OpportunitiesPageWrapperProps {
   opportunities: Opportunity[];
   loading: boolean;
   handleGetOpportunities: (props: { props: {} }) => void;
+  handleUpdateOpportunity: (props: { props: Opportunity }) => void;
 }
 
 export const OpportunitiesPageWrapper = ({
   opportunities,
   loading,
   handleGetOpportunities,
+  handleUpdateOpportunity,
 }: OpportunitiesPageWrapperProps) => {
   const location = useLocation();
   const { id } = useParams();
@@ -76,6 +78,7 @@ export const OpportunitiesPageWrapper = ({
         opportunities={opportunities}
         loading={loading}
         handleGetOpportunities={handleGetOpportunities}
+        handleUpdateOpportunity={handleUpdateOpportunity}
       />
 
       <SheetComponent

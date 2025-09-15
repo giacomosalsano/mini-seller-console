@@ -91,7 +91,7 @@ export const useOpportunities = () => {
     [properties.opportunities, handleSetProperties],
   );
 
-  const handleEditOpportunity = useCallback(
+  const handleUpdateOpportunity = useCallback(
     async ({ props, onSuccess, onError }: Handler<Opportunity>) => {
       try {
         const updatedOpportunities = properties.opportunities.map(
@@ -123,6 +123,6 @@ export const useOpportunities = () => {
     loading: properties.loading,
     handleGetOpportunities,
     handleAddOpportunity,
-    handleEditOpportunity,
+    handleUpdateOpportunity,
   };
 };
