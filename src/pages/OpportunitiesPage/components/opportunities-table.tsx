@@ -11,10 +11,12 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getSortedRowModel,
+  getPaginationRowModel,
   useReactTable,
   type ColumnDef,
   type ColumnFiltersState,
   type SortingState,
+  type PaginationState,
 } from "@tanstack/react-table";
 import type { Opportunity } from "../../../modules/opportunities/types";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -22,6 +24,15 @@ import { ArrowUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { OpportunitiesFilters } from "./filters";
 import { useLocalStorage } from "@/modules/localStorage/hooks/useLocalStorage";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
 
 interface OpportunitiesTableProps<TData, TValue> {
   opportunities: Opportunity[];
@@ -42,9 +53,18 @@ export const OpportunitiesTable = <TData, TValue>({
     useLocalStorage<ColumnFiltersState>("opportunities-filters", []);
   const [globalFilter, setGlobalFilter, isGlobalFilterLoading] =
     useLocalStorage<string>("opportunities-global-filter", "");
+  const [pagination, setPagination, isPaginationLoading] =
+    useLocalStorage<PaginationState>("opportunities-pagination", {
+      pageIndex: 0,
+      pageSize: 20,
+    });
 
   const isTableConfigLoading =
-    loading || isSortingLoading || areFiltersLoading || isGlobalFilterLoading;
+    loading ||
+    isSortingLoading ||
+    areFiltersLoading ||
+    isGlobalFilterLoading ||
+    isPaginationLoading;
 
   const table = useReactTable({
     data: opportunities as TData[],
@@ -52,9 +72,11 @@ export const OpportunitiesTable = <TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
+    onPaginationChange: setPagination,
     globalFilterFn: (row, _columnId, filterValue) => {
       const opportunity = row.original as any;
       const searchValue = filterValue.toLowerCase();
@@ -72,6 +94,7 @@ export const OpportunitiesTable = <TData, TValue>({
       sorting,
       columnFilters,
       globalFilter,
+      pagination,
     },
   });
 
@@ -172,18 +195,93 @@ export const OpportunitiesTable = <TData, TValue>({
         </Table>
       </div>
 
-      <div className="text-muted-foreground flex items-center justify-end text-sm">
+      <div className="text-muted-foreground flex items-center justify-between text-sm">
         <div>
           {isTableConfigLoading ? (
             <Skeleton className="h-4 w-32" />
           ) : (
             <>
-              Showing {table.getFilteredRowModel().rows.length} of{" "}
-              {table.getRowModel().rows.length} opportunities
+              Showing{" "}
+              {table.getState().pagination.pageIndex *
+                table.getState().pagination.pageSize +
+                1}{" "}
+              to{" "}
+              {Math.min(
+                (table.getState().pagination.pageIndex + 1) *
+                  table.getState().pagination.pageSize,
+                table.getFilteredRowModel().rows.length,
+              )}{" "}
+              of {table.getFilteredRowModel().rows.length} opportunities
             </>
           )}
         </div>
       </div>
+
+      {!isTableConfigLoading && table.getPageCount() > 1 && (
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious
+                onClick={() => table.previousPage()}
+                className={
+                  !table.getCanPreviousPage()
+                    ? "pointer-events-none opacity-50"
+                    : "cursor-pointer"
+                }
+              />
+            </PaginationItem>
+
+            {Array.from({ length: table.getPageCount() }, (_, i) => i).map(
+              (pageIndex) => {
+                const isCurrentPage =
+                  pageIndex === table.getState().pagination.pageIndex;
+                const isNearCurrentPage =
+                  Math.abs(pageIndex - table.getState().pagination.pageIndex) <=
+                  1;
+                const isFirstPage = pageIndex === 0;
+                const isLastPage = pageIndex === table.getPageCount() - 1;
+
+                if (!isNearCurrentPage && !isFirstPage && !isLastPage) {
+                  if (
+                    pageIndex === 1 ||
+                    pageIndex === table.getPageCount() - 2
+                  ) {
+                    return (
+                      <PaginationItem key={pageIndex}>
+                        <PaginationEllipsis />
+                      </PaginationItem>
+                    );
+                  }
+                  return null;
+                }
+
+                return (
+                  <PaginationItem key={pageIndex}>
+                    <PaginationLink
+                      onClick={() => table.setPageIndex(pageIndex)}
+                      isActive={isCurrentPage}
+                      className="cursor-pointer"
+                    >
+                      {pageIndex + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                );
+              },
+            )}
+
+            <PaginationItem>
+              <PaginationNext
+                onClick={() => table.nextPage()}
+                className={
+                  !table.getCanNextPage()
+                    ? "pointer-events-none opacity-50"
+                    : "cursor-pointer"
+                }
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      )}
     </div>
   );
 };

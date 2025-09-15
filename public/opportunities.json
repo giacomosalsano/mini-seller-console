@@ -10,24 +10,14 @@
     "accountName": "JPMorgan Chase"
   },
   {
-    "id": "54",
-    "name": "Julien Bernard",
-    "company": "CloudForge",
-    "email": "julien.bernard@cloudforge.fr",
-    "source": "Website",
-    "stage": "Negotiation",
-    "amountInCents": 1000000,
-    "accountName": "Bank of America"
-  },
-  {
     "id": "56",
-    "name": "Claire Dubois",
-    "company": "SolutionPro SAS",
-    "email": "claire.dubois@solutionpro.fr",
-    "source": "Referral",
-    "stage": "Declined",
-    "amountInCents": 975000,
-    "accountName": "Crédit Agricole"
+    "name": "Amélie Dubois",
+    "company": "TechParis",
+    "email": "amelie.dubois@techparis.fr",
+    "source": "Event",
+    "stage": "Proposal Sent",
+    "amountInCents": 920000,
+    "accountName": "Société Générale"
   },
   {
     "id": "61",
@@ -40,34 +30,24 @@
     "accountName": "Citigroup"
   },
   {
-    "id": "63",
-    "name": "Giovanni Moretti",
-    "company": "Moretti Solutions",
-    "email": "giovanni.moretti@morettisol.it",
-    "source": "Event",
+    "id": "69",
+    "name": "Carlos Santos",
+    "company": "Santos Digital",
+    "email": "carlos.santos@santosdigital.com.br",
+    "source": "Website",
     "stage": "Accepted",
-    "amountInCents": 680000,
-    "accountName": "Goldman Sachs"
+    "amountInCents": 1780000,
+    "accountName": "Itaú Unibanco"
   },
   {
-    "id": "67",
-    "name": "Camila Souza",
-    "company": "StartNow",
-    "email": "camila.souza@startnow.com.br",
-    "source": "Inbound",
-    "stage": "New",
-    "amountInCents": 2200000,
-    "accountName": "HSBC"
-  },
-  {
-    "id": "73",
-    "name": "Giulia Bianchi",
-    "company": "TechItalia S.p.A.",
-    "email": "giulia.bianchi@techitalia.it",
-    "source": "LinkedIn",
+    "id": "74",
+    "name": "Francesca Romano",
+    "company": "Romano Solutions",
+    "email": "francesca.romano@romanosol.it",
+    "source": "Referral",
     "stage": "Negotiation",
-    "amountInCents": 1200000,
-    "accountName": "Morgan Stanley"
+    "amountInCents": 1290000,
+    "accountName": "UniCredit"
   },
   {
     "id": "76",
@@ -80,17 +60,7 @@
     "accountName": "Deutsche Bank"
   },
   {
-    "id": "78",
-    "name": "Rafael Lima",
-    "company": "Lima Logística",
-    "email": "rafael.lima@limalog.com.br",
-    "source": "Outbound",
-    "stage": "Proposal Sent",
-    "amountInCents": 1080000,
-    "accountName": "Barclays"
-  },
-  {
-    "id": "84",
+    "id": "82",
     "name": "Antoine Lefèvre",
     "company": "NexaCloud",
     "email": "antoine.lefevre@nexacloud.fr",
@@ -100,47 +70,7 @@
     "accountName": "Credit Suisse"
   },
   {
-    "id": "87",
-    "name": "Fernanda Ribeiro",
-    "company": "Ribeiro Tech",
-    "email": "fernanda.ribeiro@ribeirotech.com.br",
-    "source": "LinkedIn",
-    "stage": "Proposal Sent",
-    "amountInCents": 1420000,
-    "accountName": "UBS"
-  },
-  {
-    "id": "89",
-    "name": "Lucas Andrade",
-    "company": "InovaTech Brasil",
-    "email": "lucas.andrade@inovatech.com.br",
-    "source": "Website",
-    "stage": "New",
-    "amountInCents": 1850000,
-    "accountName": "BNP Paribas"
-  },
-  {
-    "id": "92",
-    "name": "Matteo Rossi",
-    "company": "Digitale Roma",
-    "email": "matteo.rossi@digitaleroma.it",
-    "source": "Event",
-    "stage": "Proposal Sent",
-    "amountInCents": 730000,
-    "accountName": "Santander"
-  },
-  {
     "id": "95",
-    "name": "Élise Martin",
-    "company": "DigitalFlow",
-    "email": "elise.martin@digitalflow.fr",
-    "source": "Referral",
-    "stage": "Negotiation",
-    "amountInCents": 1340000,
-    "accountName": "Royal Bank of Canada"
-  },
-  {
-    "id": "99",
     "name": "Thiago Almeida",
     "company": "NextLevel BR",
     "email": "thiago.almeida@nextlevel.com.br",
@@ -148,5 +78,15 @@
     "stage": "Negotiation",
     "amountInCents": 2530000,
     "accountName": "Banco do Brasil"
+  },
+  {
+    "id": "99",
+    "name": "Pierre Moreau",
+    "company": "CloudFrance",
+    "email": "pierre.moreau@cloudfrance.fr",
+    "source": "Partner",
+    "stage": "New",
+    "amountInCents": 2100000,
+    "accountName": "BNP Paribas"
   }
 ]

@@ -1,6 +1,6 @@
 [
   {
-    "id": "3",
+    "id": "1",
     "name": "Giacomo Salsano",
     "company": "Mini-Seller",
     "email": "giacomo@miniseller.it",
@@ -9,43 +9,169 @@
     "status": "New"
   },
   {
-    "id": "7",
-    "name": "Domitila Rebeca",
-    "company": "Versa",
-    "email": "domitila@versa.com.br",
-    "source": "Referral",
-    "score": 34,
-    "status": "Contacted"
-  },
-  {
-    "id": "12",
-    "name": "Emilia Marques",
-    "company": "CESAS",
-    "email": "emilia@cesas.com.br",
-    "source": "LinkedIn",
-    "score": 92,
+    "id": "2",
+    "name": "Aurélie Petit",
+    "company": "TechFrance",
+    "email": "aurelie@techfrance.fr",
+    "source": "Event",
+    "score": 95,
     "status": "Qualified"
   },
   {
-    "id": "15",
-    "name": "Alessandro Greco",
-    "company": "MetaItalia",
-    "email": "alessandro@metaitalia.it",
+    "id": "3",
+    "name": "Hugo Garnier",
+    "company": "TechMonde",
+    "email": "hugo@techmonde.fr",
     "source": "Event",
-    "score": 78,
+    "score": 74,
+    "status": "Unqualified"
+  },
+  {
+    "id": "4",
+    "name": "Chloé Martin",
+    "company": "InnovaParis",
+    "email": "chloe@innovaparis.fr",
+    "source": "LinkedIn",
+    "score": 88,
+    "status": "Contacted"
+  },
+  {
+    "id": "5",
+    "name": "Marco De Luca",
+    "company": "Visione360",
+    "email": "marco@visione360.it",
+    "source": "Website",
+    "score": 32,
+    "status": "Unqualified"
+  },
+  {
+    "id": "6",
+    "name": "Sophie Dubois",
+    "company": "TechLyon",
+    "email": "sophie@techlyon.fr",
+    "source": "LinkedIn",
+    "score": 82,
     "status": "New"
   },
   {
-    "id": "18",
+    "id": "7",
+    "name": "Carlos Silva",
+    "company": "BrazilTech",
+    "email": "carlos@braziltech.com.br",
+    "source": "Website",
+    "score": 73,
+    "status": "Contacted"
+  },
+  {
+    "id": "8",
+    "name": "Anna Rossi",
+    "company": "MilanoSoft",
+    "email": "anna@milanosoft.it",
+    "source": "Referral",
+    "score": 89,
+    "status": "Qualified"
+  },
+  {
+    "id": "9",
     "name": "Francesca Romano",
     "company": "Ricerca360",
     "email": "francesca@ricerca360.it",
     "source": "Website",
-    "score": 56,
+    "score": 43,
     "status": "Contacted"
   },
   {
-    "id": "21",
+    "id": "10",
+    "name": "Pierre Martin",
+    "company": "DataParis",
+    "email": "pierre@dataparis.fr",
+    "source": "Event",
+    "score": 91,
+    "status": "Qualified"
+  },
+  {
+    "id": "11",
+    "name": "Bruna Ribeiro",
+    "company": "NovaIdeia",
+    "email": "bruna@novaideia.com.br",
+    "source": "Website",
+    "score": 67,
+    "status": "Qualified"
+  },
+  {
+    "id": "12",
+    "name": "Luca Bianchi",
+    "company": "TechRoma",
+    "email": "luca@techroma.it",
+    "source": "LinkedIn",
+    "score": 78,
+    "status": "New"
+  },
+  {
+    "id": "13",
+    "name": "Joana Almeida",
+    "company": "CodeBr",
+    "email": "joana@codebr.com.br",
+    "source": "Referral",
+    "score": 77,
+    "status": "New"
+  },
+  {
+    "id": "14",
+    "name": "Marie Leroy",
+    "company": "InnovaFrance",
+    "email": "marie@innovafrance.fr",
+    "source": "Website",
+    "score": 100,
+    "status": "Contacted"
+  },
+  {
+    "id": "15",
+    "name": "Claire Dupont",
+    "company": "HexaTech",
+    "email": "claire@hexatech.fr",
+    "source": "Referral",
+    "score": 15,
+    "status": "Unqualified"
+  },
+  {
+    "id": "16",
+    "name": "Matteo Rinaldi",
+    "company": "LogItalia",
+    "email": "matteo@logitalia.it",
+    "source": "LinkedIn",
+    "score": 59,
+    "status": "New"
+  },
+  {
+    "id": "17",
+    "name": "Gabriel Monteiro",
+    "company": "BrAI",
+    "email": "gabriel@brai.com.br",
+    "source": "LinkedIn",
+    "score": 90,
+    "status": "Qualified"
+  },
+  {
+    "id": "18",
+    "name": "Camille Dubois",
+    "company": "CloudFrance",
+    "email": "camille@cloudfrance.fr",
+    "source": "Event",
+    "score": 84,
+    "status": "Qualified"
+  },
+  {
+    "id": "19",
+    "name": "Alessandro Conti",
+    "company": "DigitalItaly",
+    "email": "alessandro@digitalitaly.it",
+    "source": "Referral",
+    "score": 72,
+    "status": "Contacted"
+  },
+  {
+    "id": "20",
     "name": "Davide Moretti",
     "company": "MelaTech",
     "email": "davide@melatech.it",
@@ -54,7 +180,115 @@
     "status": "Unqualified"
   },
   {
+    "id": "21",
+    "name": "Julien Bernard",
+    "company": "TechNice",
+    "email": "julien@technice.fr",
+    "source": "LinkedIn",
+    "score": 68,
+    "status": "New"
+  },
+  {
+    "id": "22",
+    "name": "Domitila Rebeca",
+    "company": "Versa",
+    "email": "domitila@versa.com.br",
+    "source": "Referral",
+    "score": 100,
+    "status": "Contacted"
+  },
+  {
+    "id": "23",
+    "name": "Théo Laurent",
+    "company": "DataNova",
+    "email": "theo@datainova.fr",
+    "source": "Event",
+    "score": 84,
+    "status": "Qualified"
+  },
+  {
     "id": "24",
+    "name": "Isabelle Dubois",
+    "company": "NeuroData",
+    "email": "isabelle@neurodata.fr",
+    "source": "Website",
+    "score": 52,
+    "status": "Contacted"
+  },
+  {
+    "id": "25",
+    "name": "Marco Ferrari",
+    "company": "InnovaMilano",
+    "email": "marco@innovamilano.it",
+    "source": "Event",
+    "score": 87,
+    "status": "Qualified"
+  },
+  {
+    "id": "26",
+    "name": "Émilie Moreau",
+    "company": "AIMarseille",
+    "email": "emilie@aimarseille.fr",
+    "source": "Website",
+    "score": 61,
+    "status": "Unqualified"
+  },
+  {
+    "id": "27",
+    "name": "Ricardo Santos",
+    "company": "TechBrasilia",
+    "email": "ricardo@techbrasilia.com.br",
+    "source": "LinkedIn",
+    "score": 79,
+    "status": "New"
+  },
+  {
+    "id": "28",
+    "name": "Renato Pereira",
+    "company": "VisaoTech",
+    "email": "renato@visaotech.com.br",
+    "source": "Event",
+    "score": 75,
+    "status": "Qualified"
+  },
+  {
+    "id": "29",
+    "name": "Lucas Nogueira",
+    "company": "SoftConnect",
+    "email": "lucas@softconnect.com.br",
+    "source": "Website",
+    "score": 48,
+    "status": "Contacted"
+  },
+  {
+    "id": "30",
+    "name": "Valentina Rossi",
+    "company": "TechVenice",
+    "email": "valentina@techvenice.it",
+    "source": "Referral",
+    "score": 93,
+    "status": "Qualified"
+  },
+  {
+    "id": "31",
+    "name": "Giulia Ferri",
+    "company": "AppItalia",
+    "email": "giulia@appitalia.it",
+    "source": "Referral",
+    "score": 100,
+    "status": "Qualified"
+  },
+  {
+    "id": "32",
+    "name": "Antoine Rousseau",
+    "company": "DataToulouse",
+    "email": "antoine@datatoulouse.fr",
+    "source": "Event",
+    "score": 66,
+    "status": "Contacted"
+  },
+  {
+    "id": "33",
     "name": "Elena Fontana",
     "company": "SoftItalia",
     "email": "elena@softitalia.it",
@@ -63,7 +297,88 @@
     "status": "Qualified"
   },
   {
-    "id": "27",
+    "id": "34",
+    "name": "Fernanda Lima",
+    "company": "InnovaSP",
+    "email": "fernanda@innovasp.com.br",
+    "source": "Website",
+    "score": 81,
+    "status": "New"
+  },
+  {
+    "id": "35",
+    "name": "Sophie Bernard",
+    "company": "CloudHex",
+    "email": "sophie@cloudhex.fr",
+    "source": "LinkedIn",
+    "score": 89,
+    "status": "New"
+  },
+  {
+    "id": "36",
+    "name": "Francesco Greco",
+    "company": "DigitalNapoli",
+    "email": "francesco@digitalnapoli.it",
+    "source": "Referral",
+    "score": 54,
+    "status": "Unqualified"
+  },
+  {
+    "id": "37",
+    "name": "Léa Caron",
+    "company": "NovaCloud",
+    "email": "lea@novacloud.fr",
+    "source": "Referral",
+    "score": 80,
+    "status": "New"
+  },
+  {
+    "id": "38",
+    "name": "Emilia Marques",
+    "company": "CESAS",
+    "email": "emilia@cesas.com.br",
+    "source": "LinkedIn",
+    "score": 100,
+    "status": "Qualified"
+  },
+  {
+    "id": "39",
+    "name": "Thomas Lefevre",
+    "company": "TechBordeaux",
+    "email": "thomas@techbordeaux.fr",
+    "source": "Event",
+    "score": 77,
+    "status": "Contacted"
+  },
+  {
+    "id": "40",
+    "name": "Rafael Duarte",
+    "company": "FutureLink",
+    "email": "rafael@futurelink.com.br",
+    "source": "Website",
+    "score": 83,
+    "status": "Qualified"
+  },
+  {
+    "id": "41",
+    "name": "Julien Mercier",
+    "company": "NextAI",
+    "email": "julien@nextai.fr",
+    "source": "Website",
+    "score": 57,
+    "status": "Unqualified"
+  },
+  {
+    "id": "42",
+    "name": "Chiara Lombardi",
+    "company": "SoftFirenze",
+    "email": "chiara@softfirenze.it",
+    "source": "LinkedIn",
+    "score": 85,
+    "status": "Qualified"
+  },
+  {
+    "id": "43",
     "name": "Ana Souza",
     "company": "InovaTech",
     "email": "ana@inovatech.com",
@@ -72,7 +387,52 @@
     "status": "New"
   },
   {
-    "id": "29",
+    "id": "44",
+    "name": "Patrícia Lima",
+    "company": "VivaDigital",
+    "email": "patricia@vivadigital.com.br",
+    "source": "Referral",
+    "score": 70,
+    "status": "Contacted"
+  },
+  {
+    "id": "45",
+    "name": "Maxime Girard",
+    "company": "CloudLille",
+    "email": "maxime@cloudlille.fr",
+    "source": "Event",
+    "score": 69,
+    "status": "New"
+  },
+  {
+    "id": "46",
+    "name": "Valentina Conti",
+    "company": "DigitaRoma",
+    "email": "valentina@digitaroma.it",
+    "source": "LinkedIn",
+    "score": 71,
+    "status": "Contacted"
+  },
+  {
+    "id": "47",
+    "name": "Alessandro Greco",
+    "company": "MetaItalia",
+    "email": "alessandro@metaitalia.it",
+    "source": "Event",
+    "score": 78,
+    "status": "New"
+  },
+  {
+    "id": "48",
+    "name": "Manon Garcia",
+    "company": "AIRennes",
+    "email": "manon@airennes.fr",
+    "source": "Website",
+    "score": 62,
+    "status": "Unqualified"
+  },
+  {
+    "id": "49",
     "name": "Carlos Mendes",
     "company": "SoftPlus",
     "email": "carlos@softplus.com",
@@ -81,7 +441,7 @@
     "status": "Contacted"
   },
   {
-    "id": "31",
+    "id": "50",
     "name": "Julia Ferreira",
     "company": "DataVision",
     "email": "julia@datavision.com",
@@ -90,93 +450,453 @@
     "status": "Qualified"
   },
   {
-    "id": "33",
-    "name": "Ricardo Lima",
-    "company": "NextGen AI",
-    "email": "ricardo@nextgenai.com",
-    "source": "Referral",
-    "score": 62,
-    "status": "Unqualified"
-  },
-  {
-    "id": "36",
-    "name": "Fernanda Rocha",
-    "company": "GreenBytes",
-    "email": "fernanda@greenbytes.com",
-    "source": "Website",
-    "score": 93,
+    "id": "51",
+    "name": "Pierre Moreau",
+    "company": "InnovateFrance",
+    "email": "pierre@innovatefrance.fr",
+    "source": "LinkedIn",
+    "score": 65,
     "status": "New"
   },
   {
-    "id": "38",
-    "name": "Paulo Oliveira",
-    "company": "CyberWorks",
-    "email": "paulo@cyberworks.com",
-    "source": "Referral",
-    "score": 13,
+    "id": "52",
+    "name": "Camila Santos",
+    "company": "TechBrasil",
+    "email": "camila@techbrasil.com.br",
+    "source": "Website",
+    "score": 72,
     "status": "Contacted"
   },
   {
-    "id": "41",
-    "name": "Mariana Teixeira",
-    "company": "QuantumWare",
-    "email": "mariana@quantumware.com",
-    "source": "Event",
+    "id": "53",
+    "name": "Lorenzo Bianchi",
+    "company": "DigitalItaly",
+    "email": "lorenzo@digitalitaly.it",
+    "source": "Referral",
     "score": 88,
     "status": "Qualified"
   },
   {
-    "id": "43",
-    "name": "Emilia Domitila",
-    "company": "CloudLink",
-    "email": "emilia@cloudlink.com",
-    "source": "LinkedIn",
-    "score": 100,
-    "status": "New"
-  },
-  {
-    "id": "45",
-    "name": "Bianca Martins",
-    "company": "NeuralNode",
-    "email": "bianca@neuralnode.com",
-    "source": "Website",
-    "score": 85,
+    "id": "54",
+    "name": "Marie Leroy",
+    "company": "CloudFrance",
+    "email": "marie@cloudfrance.fr",
+    "source": "Event",
+    "score": 54,
     "status": "Unqualified"
   },
   {
-    "id": "47",
-    "name": "André Costa",
-    "company": "TechSphere",
-    "email": "andre@techsphere.com",
+    "id": "55",
+    "name": "Diego Silva",
+    "company": "SmartBR",
+    "email": "diego@smartbr.com.br",
+    "source": "LinkedIn",
+    "score": 79,
+    "status": "New"
+  },
+  {
+    "id": "56",
+    "name": "Chiara Rossi",
+    "company": "TechRoma",
+    "email": "chiara@techroma.it",
+    "source": "Website",
+    "score": 93,
+    "status": "Qualified"
+  },
+  {
+    "id": "57",
+    "name": "Antoine Dubois",
+    "company": "AIFrance",
+    "email": "antoine@aifrance.fr",
     "source": "Referral",
+    "score": 61,
+    "status": "Contacted"
+  },
+  {
+    "id": "58",
+    "name": "Larissa Costa",
+    "company": "NextGen",
+    "email": "larissa@nextgen.com.br",
+    "source": "Event",
+    "score": 85,
+    "status": "Qualified"
+  },
+  {
+    "id": "59",
+    "name": "Fabio Martini",
+    "company": "InnovItalia",
+    "email": "fabio@innovitalia.it",
+    "source": "LinkedIn",
+    "score": 47,
+    "status": "New"
+  },
+  {
+    "id": "60",
+    "name": "Céline Roux",
+    "company": "DataFrance",
+    "email": "celine@datafrance.fr",
+    "source": "Website",
+    "score": 68,
+    "status": "Contacted"
+  },
+  {
+    "id": "61",
+    "name": "Thiago Oliveira",
+    "company": "CodeBrasil",
+    "email": "thiago@codebrasil.com.br",
+    "source": "Referral",
+    "score": 82,
+    "status": "Qualified"
+  },
+  {
+    "id": "62",
+    "name": "Silvia Galli",
+    "company": "WebItalia",
+    "email": "silvia@webitalia.it",
+    "source": "Event",
+    "score": 39,
+    "status": "Unqualified"
+  },
+  {
+    "id": "63",
+    "name": "Nicolas Martin",
+    "company": "TechParis",
+    "email": "nicolas@techparis.fr",
+    "source": "LinkedIn",
+    "score": 76,
+    "status": "New"
+  },
+  {
+    "id": "64",
+    "name": "Fernanda Rocha",
+    "company": "DigitalBR",
+    "email": "fernanda@digitalbr.com.br",
+    "source": "Website",
+    "score": 91,
+    "status": "Qualified"
+  },
+  {
+    "id": "65",
+    "name": "Andrea Colombo",
+    "company": "SoftMilano",
+    "email": "andrea@softmilano.it",
+    "source": "Referral",
+    "score": 55,
+    "status": "Contacted"
+  },
+  {
+    "id": "66",
+    "name": "Émilie Blanc",
+    "company": "CloudParis",
+    "email": "emilie@cloudparis.fr",
+    "source": "Event",
+    "score": 73,
+    "status": "New"
+  },
+  {
+    "id": "67",
+    "name": "Rodrigo Barbosa",
+    "company": "InnovaBR",
+    "email": "rodrigo@innovabr.com.br",
+    "source": "LinkedIn",
+    "score": 86,
+    "status": "Qualified"
+  },
+  {
+    "id": "68",
+    "name": "Paola Ricci",
+    "company": "TechNapoli",
+    "email": "paola@technapoli.it",
+    "source": "Website",
+    "score": 42,
+    "status": "Unqualified"
+  },
+  {
+    "id": "69",
+    "name": "Maxime Girard",
+    "company": "AILyon",
+    "email": "maxime@ailyon.fr",
+    "source": "Referral",
+    "score": 69,
+    "status": "Contacted"
+  },
+  {
+    "id": "70",
+    "name": "Beatriz Cardoso",
+    "company": "SmartTech",
+    "email": "beatriz@smarttech.com.br",
+    "source": "Event",
     "score": 94,
     "status": "Qualified"
   },
   {
-    "id": "48",
-    "name": "Carla Santos",
-    "company": "CloudMind",
-    "email": "carla@cloudmind.com",
+    "id": "71",
+    "name": "Luca Ferrari",
+    "company": "DigitalVenice",
+    "email": "luca@digitalvenice.it",
     "source": "LinkedIn",
-    "score": 82,
+    "score": 58,
     "status": "New"
   },
   {
-    "id": "49",
-    "name": "Daniel Oliveira",
-    "company": "TechSphere",
-    "email": "daniel@techsphere.com",
-    "source": "Referral",
-    "score": 97,
+    "id": "72",
+    "name": "Camille Moreau",
+    "company": "TechMarseille",
+    "email": "camille@techmarseille.fr",
+    "source": "Website",
+    "score": 81,
     "status": "Contacted"
   },
   {
-    "id": "50",
-    "name": "Isabela Martins",
-    "company": "NeuralNode",
-    "email": "isabela@neuralnode.com",
-    "source": "Website",
-    "score": 86,
+    "id": "73",
+    "name": "Vinicius Alves",
+    "company": "FutureBR",
+    "email": "vinicius@futurebr.com.br",
+    "source": "Referral",
+    "score": 77,
+    "status": "Qualified"
+  },
+  {
+    "id": "74",
+    "name": "Federica Esposito",
+    "company": "InnovaFirenze",
+    "email": "federica@innovafirenze.it",
+    "source": "Event",
+    "score": 45,
     "status": "Unqualified"
+  },
+  {
+    "id": "75",
+    "name": "Thomas Lefevre",
+    "company": "CloudNice",
+    "email": "thomas@cloudnice.fr",
+    "source": "LinkedIn",
+    "score": 63,
+    "status": "New"
+  },
+  {
+    "id": "76",
+    "name": "Mariana Gomes",
+    "company": "TechSP",
+    "email": "mariana@techsp.com.br",
+    "source": "Website",
+    "score": 89,
+    "status": "Qualified"
+  },
+  {
+    "id": "77",
+    "name": "Roberto Mancini",
+    "company": "SoftBologna",
+    "email": "roberto@softbologna.it",
+    "source": "Referral",
+    "score": 51,
+    "status": "Contacted"
+  },
+  {
+    "id": "78",
+    "name": "Sarah Durand",
+    "company": "AIToulouse",
+    "email": "sarah@aitoulouse.fr",
+    "source": "Event",
+    "score": 78,
+    "status": "New"
+  },
+  {
+    "id": "79",
+    "name": "Felipe Nascimento",
+    "company": "DigitalRJ",
+    "email": "felipe@digitalrj.com.br",
+    "source": "LinkedIn",
+    "score": 92,
+    "status": "Qualified"
+  },
+  {
+    "id": "80",
+    "name": "Martina Conti",
+    "company": "TechGenova",
+    "email": "martina@techgenova.it",
+    "source": "Website",
+    "score": 37,
+    "status": "Unqualified"
+  },
+  {
+    "id": "81",
+    "name": "Julien Rousseau",
+    "company": "DataBordeaux",
+    "email": "julien@databordeaux.fr",
+    "source": "Referral",
+    "score": 66,
+    "status": "Contacted"
+  },
+  {
+    "id": "82",
+    "name": "Carla Mendonça",
+    "company": "InnovaMG",
+    "email": "carla@innovamg.com.br",
+    "source": "Event",
+    "score": 84,
+    "status": "Qualified"
+  },
+  {
+    "id": "83",
+    "name": "Simone Russo",
+    "company": "CloudTorino",
+    "email": "simone@cloudtorino.it",
+    "source": "LinkedIn",
+    "score": 49,
+    "status": "New"
+  },
+  {
+    "id": "84",
+    "name": "Océane Petit",
+    "company": "TechLille",
+    "email": "oceane@techlille.fr",
+    "source": "Website",
+    "score": 75,
+    "status": "Contacted"
+  },
+  {
+    "id": "85",
+    "name": "Bruno Teixeira",
+    "company": "SmartRS",
+    "email": "bruno@smartrs.com.br",
+    "source": "Referral",
+    "score": 88,
+    "status": "Qualified"
+  },
+  {
+    "id": "86",
+    "name": "Alessia Bruno",
+    "company": "DigitalPalermo",
+    "email": "alessia@digitalpalermo.it",
+    "source": "Event",
+    "score": 41,
+    "status": "Unqualified"
+  },
+  {
+    "id": "87",
+    "name": "Lucas Bonnet",
+    "company": "AIRennes",
+    "email": "lucas@airennes.fr",
+    "source": "LinkedIn",
+    "score": 71,
+    "status": "New"
+  },
+  {
+    "id": "88",
+    "name": "Priscila Araújo",
+    "company": "TechPR",
+    "email": "priscila@techpr.com.br",
+    "source": "Website",
+    "score": 93,
+    "status": "Qualified"
+  },
+  {
+    "id": "89",
+    "name": "Francesco Lombardi",
+    "company": "InnovaBari",
+    "email": "francesco@innovabari.it",
+    "source": "Referral",
+    "score": 56,
+    "status": "Contacted"
+  },
+  {
+    "id": "90",
+    "name": "Manon Garcia",
+    "company": "CloudStrasbourg",
+    "email": "manon@cloudstrasbourg.fr",
+    "source": "Event",
+    "score": 79,
+    "status": "New"
+  },
+  {
+    "id": "91",
+    "name": "Gustavo Reis",
+    "company": "DigitalSC",
+    "email": "gustavo@digitalsc.com.br",
+    "source": "LinkedIn",
+    "score": 87,
+    "status": "Qualified"
+  },
+  {
+    "id": "92",
+    "name": "Giorgia Marini",
+    "company": "TechCatania",
+    "email": "giorgia@techcatania.it",
+    "source": "Website",
+    "score": 44,
+    "status": "Unqualified"
+  },
+  {
+    "id": "93",
+    "name": "Adrien Lambert",
+    "company": "DataReims",
+    "email": "adrien@datareims.fr",
+    "source": "Referral",
+    "score": 62,
+    "status": "Contacted"
+  },
+  {
+    "id": "94",
+    "name": "Tatiana Moreira",
+    "company": "SmartGO",
+    "email": "tatiana@smartgo.com.br",
+    "source": "Event",
+    "score": 90,
+    "status": "Qualified"
+  },
+  {
+    "id": "95",
+    "name": "Daniele Vitale",
+    "company": "CloudMessina",
+    "email": "daniele@cloudmessina.it",
+    "source": "LinkedIn",
+    "score": 53,
+    "status": "New"
+  },
+  {
+    "id": "96",
+    "name": "Chloé Faure",
+    "company": "TechMetz",
+    "email": "chloe@techmetz.fr",
+    "source": "Website",
+    "score": 76,
+    "status": "Contacted"
+  },
+  {
+    "id": "97",
+    "name": "Leonardo Castro",
+    "company": "InnovaBA",
+    "email": "leonardo@innovaba.com.br",
+    "source": "Referral",
+    "score": 85,
+    "status": "Qualified"
+  },
+  {
+    "id": "98",
+    "name": "Serena Gatti",
+    "company": "DigitalReggio",
+    "email": "serena@digitalreggio.it",
+    "source": "Event",
+    "score": 48,
+    "status": "Unqualified"
+  },
+  {
+    "id": "99",
+    "name": "Bastien Roy",
+    "company": "AIAmiens",
+    "email": "bastien@aiamiens.fr",
+    "source": "LinkedIn",
+    "score": 67,
+    "status": "New"
+  },
+  {
+    "id": "100",
+    "name": "Vanessa Correia",
+    "company": "TechCE",
+    "email": "vanessa@techce.com.br",
+    "source": "Website",
+    "score": 91,
+    "status": "Qualified"
   }
 ]

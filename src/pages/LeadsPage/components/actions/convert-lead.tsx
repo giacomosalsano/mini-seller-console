@@ -7,9 +7,9 @@ import {
 import {
   Building2,
   DollarSign,
-  TicketCheck,
   User,
   Loader2,
+  SquareCheckBig,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -68,7 +68,7 @@ export const ConvertLead = ({
   const handleConvert = (data: FormSchemaType) => {
     const newOpportunity: Opportunity = {
       ...lead,
-      id: `${Math.floor(Math.random() * 101) + 100}`,
+      id: `${Math.floor(Math.random() * 201) + 200}`,
       stage: data.stage,
       amountInCents: data.amountInCents,
       accountName: data.accountName,
@@ -159,12 +159,12 @@ export const ConvertLead = ({
       open={isOpen}
       onOpenChange={setIsOpen}
       trigger={
-        <Button variant="outline" size="sm" type="button">
-          <TicketCheck className="h-4 w-4" />
+        <Button size="sm" type="button">
+          <SquareCheckBig className="h-4 w-4" />
         </Button>
       }
       title={`Convert Lead: ${lead.name}`}
-      description="Add the final details to create an opportunity."
+      description="Add the final details to convert this lead into an opportunity."
       children={convertLeadContent}
     />
   );

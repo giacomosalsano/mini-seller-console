@@ -74,7 +74,7 @@ export const useLeads = () => {
       try {
         const newLead: Lead = {
           ...props,
-          id: `${Math.floor(Math.random() * 51) + 50}`,
+          id: `${Math.floor(Math.random() * 111) + 110}`,
         };
 
         const newLeads = [...properties.leads, newLead];
