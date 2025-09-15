@@ -76,8 +76,6 @@ export const useOpportunities = () => {
           JSON.stringify(newOpportunities),
         );
 
-        toast.success("Opportunity added successfully!");
-
         if (onSuccess) {
           onSuccess();
         }

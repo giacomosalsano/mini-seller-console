@@ -39,13 +39,12 @@ export const useLeads = () => {
           const leads = JSON.parse(localData);
           handleSetProperties({ leads });
           if (onSuccess) onSuccess(leads);
-    
+
           return;
         }
 
         const data = await getLeads();
         handleSetProperties({ leads: data });
-
 
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(data));
 
@@ -70,7 +69,7 @@ export const useLeads = () => {
   const handleAddLead = useCallback(
     async ({ props, onSuccess, onError }: Handler<Omit<Lead, "id">>) => {
       handleSetProperties({ loading: true });
-      await new Promise((resolve) => setTimeout(resolve, 500)); 
+      await new Promise((resolve) => setTimeout(resolve, 500));
 
       try {
         const newLead: Lead = {
@@ -139,8 +138,6 @@ export const useLeads = () => {
 
         handleSetProperties({ leads: updatedLeads });
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(updatedLeads));
-
-        toast.success("Lead converted successfully!");
 
         if (onSuccess) {
           onSuccess();
