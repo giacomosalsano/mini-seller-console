@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# Mini-Seller Console
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern sales management platform that transforms your leads into opportunities and drives revenue growth with powerful pipeline tracking and conversion tools.
 
-Currently, two official plugins are available:
+### Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** React 19.1.1 with Vite 7.1.2
+- **Language:** TypeScript 5.8.3
+- **Navigation:** React Router DOM 7.9.1
+- **State Management:** React Hooks with Custom Hook Pattern
+- **Forms & Validation:** React Hook Form 7.62.0 + Zod 4.1.8
+- **HTTP Client:** Fetch API (with local storage fallback)
+- **Styling:** Tailwind CSS 4.1.13 + Radix UI Components
+- **Storage:** LocalStorage with JSON serialization
+- **Key Libraries/Services:** TanStack Table, Lucide React, Sonner (toasts), Class Variance Authority
 
-## Expanding the ESLint configuration
+<div align="center" style="display: inline_block justify-center"><br>
+  <img src="https://skillicons.dev/icons?i=typescript,react,tailwind,vite,nodejs" alt="icons" /> </div>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Main Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Lead Management** - Capture, organize, and track leads with powerful filtering and search capabilities
+- **Opportunity Conversion** - Seamlessly convert qualified leads into opportunities with detailed tracking
+- **Pipeline Management** - Track opportunities through different stages from initial contact to closing
+- **Analytics & Insights** - Get valuable insights into your sales pipeline with comprehensive reporting
+- **Multi-Currency Support** - Handle international sales with proper currency formatting and localization
+- **Local-First Architecture** - No backend required, perfect for demos and single-user scenarios
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📊 Core Application Flow
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant LocalStorage
+    participant Toast
+
+    User->>Frontend: Creates new lead
+    Frontend->>LocalStorage: Saves lead data
+    LocalStorage-->>Frontend: Confirms save
+    Frontend->>Toast: Shows success message
+    Frontend->>User: Updates lead list
+
+    User->>Frontend: Converts lead to opportunity
+    Frontend->>Frontend: Validates conversion data
+    Frontend->>LocalStorage: Creates opportunity
+    Frontend->>LocalStorage: Removes original lead
+    LocalStorage-->>Frontend: Confirms operations
+    Frontend->>Toast: Shows conversion success
+    Frontend->>User: Navigates to opportunity details
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚡ How to Run Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository:
+   ```bash
+   git clone [repository_url] cd mini-seller-console
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser and navigate to `http://localhost:5173`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📚 Learn More
+
+For full details on architecture, features, components, and improvement suggestions, please see the [complete documentation](./documentation.md).
+
+---
+
+made with ♥ by [giacomosalsano](https://giacomosalsano.com)! <!-- Update with your actual website URL -->
