@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
 import { LeadsPageWrapper } from "./pages/LeadsPage/components/leads-page-wrapper";
 import { OpportunitiesPageWrapper } from "./pages/OpportunitiesPage/components/opportunities-page-wrapper";
 import { NotFoundPage } from "./pages/NotFoundPage";
@@ -22,7 +23,7 @@ function App() {
       <>
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/leads" replace />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/leads/*"
             element={<LeadsPageWrapper {...leadsData} {...opportunitiesData} />}

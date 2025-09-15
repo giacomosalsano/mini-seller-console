@@ -1,5 +1,5 @@
 import { Toggle } from "@/components/ui/toggle";
-import { Moon, Sun, TrendingUp, UserPlus } from "lucide-react";
+import { Moon, Sun, TrendingUp, UserPlus, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -47,6 +47,15 @@ export function Header() {
         </div>
 
         <nav className="flex items-center gap-4 lg:mr-20 lg:gap-4">
+          <Button
+            variant={location.pathname === "/" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2"
+          >
+            <Home className="h-4 w-4 lg:h-4 lg:w-4" />
+            Home
+          </Button>
           <Button
             variant={location.pathname === "/leads" ? "default" : "ghost"}
             size="sm"
