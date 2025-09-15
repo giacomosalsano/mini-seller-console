@@ -33,6 +33,7 @@ function App() {
             element={
               <OpportunitiesPageWrapper
                 {...opportunitiesData}
+                handleAddOpportunity={opportunitiesData.handleAddOpportunity}
                 handleUpdateOpportunity={
                   opportunitiesData.handleUpdateOpportunity
                 }

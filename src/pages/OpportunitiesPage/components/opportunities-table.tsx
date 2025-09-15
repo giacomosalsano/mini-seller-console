@@ -34,17 +34,20 @@ import {
   PaginationEllipsis,
 } from "@/components/ui/pagination";
 import { useMemo } from "react";
+import { AddOpportunityAction } from "./actions/add-opportunity";
 
 interface OpportunitiesTableProps<TData, TValue> {
   opportunities: Opportunity[];
   loading: boolean;
   columns: ColumnDef<TData, TValue>[];
+  onAddOpportunity: (opportunity: Opportunity) => void;
 }
 
 export const OpportunitiesTable = <TData, TValue>({
   opportunities,
   loading,
   columns,
+  onAddOpportunity,
 }: OpportunitiesTableProps<TData, TValue>) => {
   const [sorting, setSorting, isSortingLoading] = useLocalStorage<SortingState>(
     "opportunities-sorting",
@@ -145,6 +148,11 @@ export const OpportunitiesTable = <TData, TValue>({
           table={table}
           setColumnFilters={setColumnFilters}
           setSorting={setSorting}
+          loading={isTableConfigLoading}
+        />
+
+        <AddOpportunityAction
+          onAddOpportunity={onAddOpportunity}
           loading={isTableConfigLoading}
         />
       </div>

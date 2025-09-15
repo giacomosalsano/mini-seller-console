@@ -66,15 +66,20 @@ export const useOpportunities = () => {
   );
 
   const handleAddOpportunity = useCallback(
-    async ({ props, onSuccess, onError }: Handler<Opportunity>) => {
+    async ({ props, onSuccess, onError }: Handler<Omit<Opportunity, "id">>) => {
       try {
-        const newOpportunities = [...properties.opportunities, props];
+        const newOpportunity: Opportunity = {
+          ...props,
+          id: `${Math.floor(Math.random() * 111) + 110}`,
+        };
 
-        handleSetProperties({ opportunities: newOpportunities });
+        handleSetProperties({
+          opportunities: [...properties.opportunities, newOpportunity],
+        });
 
         localStorage.setItem(
           OPPORTUNITIES_STORAGE_KEY,
-          JSON.stringify(newOpportunities),
+          JSON.stringify([...properties.opportunities, newOpportunity]),
         );
 
         if (onSuccess) {

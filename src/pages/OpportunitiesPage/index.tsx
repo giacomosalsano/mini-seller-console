@@ -10,6 +10,7 @@ interface OpportunitiesPageProps {
   loading: boolean;
   handleGetOpportunities: (props: { props: {} }) => void;
   handleUpdateOpportunity: (props: { props: Opportunity }) => void;
+  handleAddOpportunity: (props: { props: Opportunity }) => void;
 }
 
 export const OpportunitiesPage = ({
@@ -17,6 +18,7 @@ export const OpportunitiesPage = ({
   loading,
   handleGetOpportunities,
   handleUpdateOpportunity,
+  handleAddOpportunity,
 }: OpportunitiesPageProps) => {
   const location = useLocation();
   const { id } = useParams();
@@ -46,6 +48,9 @@ export const OpportunitiesPage = ({
         opportunities={opportunities}
         loading={loading}
         columns={columns}
+        onAddOpportunity={(opportunity: Opportunity) =>
+          handleAddOpportunity({ props: opportunity })
+        }
       />
 
       {currentOpportunity &&
