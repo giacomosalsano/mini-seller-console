@@ -90,7 +90,7 @@ export const createColumns = ({
     enableColumnFilter: false,
     cell: ({ row }) => {
       return (
-        <div className="flex justify-center gap-2">
+        <div className="m-auto flex max-w-[90px] justify-center gap-2">
           <LeadDetails lead={row.original} />
           <EditLead
             lead={row.original}

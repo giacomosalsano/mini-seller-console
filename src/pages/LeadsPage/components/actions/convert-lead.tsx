@@ -147,7 +147,7 @@ export const ConvertLead = ({
             {form.formState.isSubmitting && (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             )}
-            Create Opportunity
+            Convert to Opportunity
           </Button>
         </SheetFooter>
       </div>
@@ -161,6 +161,7 @@ export const ConvertLead = ({
       trigger={
         <Button size="sm" type="button">
           <SquareCheckBig className="h-4 w-4" />
+          Convert Lead
         </Button>
       }
       title={`Convert Lead: ${lead.name}`}
